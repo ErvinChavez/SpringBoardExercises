@@ -4,7 +4,6 @@
     - Implement `inventory.mjs`, exporting named functions: `addItem` that adds an item by name to the inventory array, `removeItem` that removes an item by name from the inventory array, `listItems` that logs all item names currently in the inventory.
     - Implement `storeManager.mjs` that imports the functions from `inventory.mjs` to demonstrate adding a few items, removing an item, and then listing the remaining items in the inventory.
 
-
 2. **Default Export and Import:** Use default exports and imports by developing a blogging module.
     - Create `Post.mjs`, exporting a default `Post` class that includes a constructor for `title` and `content`, and a `publish` method that logs the title and content to the console.
     - Create `blog.mjs` that imports the `Post` class. Create an instance, and call the `publish` method to simulate posting.
@@ -23,3 +22,17 @@
 5. **Side Effects in Modules:** Create a module that automatically executes code upon import, demonstrating module side effects.
     - Develop `globalConfig.mjs` to log a message, simulating a global configuration setup.
     - Import `globalConfig.mjs` in `app.mjs` to observe the automatic execution of its side effects upon module load without needing to explicitly invoke any functions.*/
+
+export function addItem(itemName) {
+  //need to return the array of items by their name
+}
+
+export function listItems(itemNames) {
+  //this will list all the items in inventory by name
+}
+
+export function removeItem(itemName) {
+  //removes the items in the array by their name
+}
+
+//You would place "import" in a script inside the index.html page. "import {name of the exports here, separate by comma} from "name of the js file".
