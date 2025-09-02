@@ -23,16 +23,19 @@
     - Develop `globalConfig.mjs` to log a message, simulating a global configuration setup.
     - Import `globalConfig.mjs` in `app.mjs` to observe the automatic execution of its side effects upon module load without needing to explicitly invoke any functions.*/
 
-export function addItem(itemName) {
+
+const inventory = [];
+
+ function addItem(itemName) {
   //need to return the array of items by their name
-}
+  inventory.includes(itemName) //should make this into if statement, if not in array list, add it and inventory list and then return the list of inventory.
+ }
+// export function listItems(itemNames) {
+//   //this will list all the items in inventory by name
+// }
 
-export function listItems(itemNames) {
-  //this will list all the items in inventory by name
-}
+// export function removeItem(itemName) {
+//   //removes the items in the array by their name
+// }
 
-export function removeItem(itemName) {
-  //removes the items in the array by their name
-}
-
-//You would place "import" in a script inside the index.html page. "import {name of the exports here, separate by comma} from "name of the js file".
+// //You would place "import" in a script inside the index.html page. "import {name of the exports here, separate by comma} from "name of the js file".
