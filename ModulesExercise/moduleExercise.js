@@ -23,15 +23,24 @@
     - Develop `globalConfig.mjs` to log a message, simulating a global configuration setup.
     - Import `globalConfig.mjs` in `app.mjs` to observe the automatic execution of its side effects upon module load without needing to explicitly invoke any functions.*/
 
-
 const inventory = [];
 
- function addItem(itemName) {
-  //need to return the array of items by their name
-  inventory.includes(itemName) //should make this into if statement, if not in array list, add it and inventory list and then return the list of inventory.
- }
-// export function listItems(itemNames) {
+export function addItem(...itemName) {//I think i need to somehow place a spread variable here {
+  //then loop through each and check if in the inventory list
+  //if not then add to it;
+  if (!inventory.includes(itemName)) {
+    inventory.push(itemName);
+  } //should make this into if statement, if not in array list, add it and inventory list and then return the list of inventory.
+  return inventory;
+}
+//Problems to figure out:
+//can only add item at a time, how to be able to place in multiple items at once
+
+
+
+//  export function listItems(listOfItems) {
 //   //this will list all the items in inventory by name
+//   return listItems;
 // }
 
 // export function removeItem(itemName) {
