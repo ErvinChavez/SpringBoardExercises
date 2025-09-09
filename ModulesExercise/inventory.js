@@ -25,7 +25,7 @@
 
 const inventory = [];
 
-export function addItem(...itemName) {//I think i need to somehow place a spread variable here {
+export function addItem(itemName) {//I think i need to somehow place a spread variable here {
   //then loop through each and check if in the inventory list
   //if not then add to it;
   if (!inventory.includes(itemName)) {
@@ -36,15 +36,19 @@ export function addItem(...itemName) {//I think i need to somehow place a spread
 //Problems to figure out:
 //can only add item at a time, how to be able to place in multiple items at once
 
-
+export function removeItem(itemName) {
+//removes the items in the array by their name
+if (inventory.includes(itemName)) {
+    inventory.removeItem(inventory.indexOf(itemName));
+}
+return inventory;
+}
 
 //  export function listItems(listOfItems) {
 //   //this will list all the items in inventory by name
 //   return listItems;
 // }
 
-// export function removeItem(itemName) {
-//   //removes the items in the array by their name
-// }
+
 
 // //You would place "import" in a script inside the index.html page. "import {name of the exports here, separate by comma} from "name of the js file".
