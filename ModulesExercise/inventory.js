@@ -25,6 +25,7 @@
 
 const inventory = [];
 
+//ADD ITEM.....
 export function addItem(...items) {//I think i need to somehow place a spread variable here
   //then loop through each and check if in the inventory list
   //if not then add to it;
@@ -40,23 +41,20 @@ export function addItem(...items) {//I think i need to somehow place a spread va
 
 window.addItem = addItem;
 
+//REMOVE ITEM.....
+export function removeItem(...items) {
+//removes the items in the array by their name
+items.forEach(value => {
+    const itemIndex = inventory.indexOf(value);
+    if (itemIndex !== -1){
+        inventory.splice(itemIndex, 1);
+    }
+});
 
-//   if (!inventory.includes(itemName)) {
-//     inventory.push(itemName);
-//   } //should make this into if statement, if not in array list, add it and inventory list and then return the list of inventory.
- 
-//Problems to figure out:
-//can only add item at a time, how to be able to place in multiple items at once
+return [...inventory];
+}
 
-// export function removeItem(itemName) {
-// //removes the items in the array by their name
-// let itemIndex = inventory.indexOf(itemName);
-// const itemToRemove = inventory[itemIndex];
-// if (inventory.includes(itemName)) {
-//     inventory.removeItem(inventory.indexOf(itemName));
-// }
-// return inventory;
-// }
+window.removeItem = removeItem;
 
 //  export function listItems(listOfItems) {
 //   //this will list all the items in inventory by name
