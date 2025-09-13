@@ -1,4 +1,4 @@
-import { addItem, removeItem, listItems } from "./inventory.js";
+import { addItem, removeItem, listItems } from "./storeInventory.js";
 
 addItem('salt', 'water', 'pear');
 removeItem('salt');
