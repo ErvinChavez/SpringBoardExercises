@@ -36,7 +36,7 @@ export function addItem(...items) {//I think i need to somehow place a spread va
         console.log("Item already in inventory")
     }
   }) 
-  return [...inventory];
+  //return [...inventory];
 }
 
 window.addItem = addItem;
@@ -51,16 +51,18 @@ items.forEach(value => {
     }
 });
 
-return [...inventory];
+//return [...inventory];
 }
 
 window.removeItem = removeItem;
 
-//  export function listItems(listOfItems) {
-//   //this will list all the items in inventory by name
-//   return listItems;
-// }
+//List of Inventory.....
+export function listItems() {
+  //this will list all the items in inventory by name
+  console.log(inventory.join(", "));
+}
 
+window.listItems = listItems;
 
 
 // //You would place "import" in a script inside the index.html page. "import {name of the exports here, separate by comma} from "name of the js file".
