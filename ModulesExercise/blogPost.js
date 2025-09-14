@@ -5,6 +5,6 @@ export default class Post {
     }
 
     publish() {
-        console.log(`${this.title}: is a blog about ${this.content}`);
+        console.log(`${this.title}: A blog about ${this.content}`);
     }
 }
