@@ -3,3 +3,5 @@
 export function strLength(string) {
   return string.length;
 }
+
+//Solution: same for this just could of made a const variable equal the arrow function.
