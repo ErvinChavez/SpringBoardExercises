@@ -1,0 +1,22 @@
+{
+<<<<<<< HEAD
+  "type": "module",
+  "name": "springboardexercises",
+  "version": "1.0.0",
+  "description": "These are exercises that are my attempts after learning the new materials prior and comparing them to the solution after.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+=======
+  "name": "dsa-trees",
+  "version": "1.0.0",
+  "description": "",
+  "main": "areCousins.js",
+  "scripts": {
+    "test": "jest"
+>>>>>>> c307cd8 (starting dsa trees exercise)
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
