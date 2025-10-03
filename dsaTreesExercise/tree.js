@@ -10,14 +10,12 @@ class TreeNode {
 class Tree {
   constructor(root = null) {
     this.root = root;//the start or root of the tree
- 
-    sumValues(TreeNode) {
+  }
+    sumValues() {
     let sumOfValues = 0;
     const values = [this.root];//this should be the the val of the root
 
-    if (values === null) {
-      return 0;
-    }
+    if (this.root === null) return 0;
 
     while (values.length) {
       const current = values.shift();
@@ -25,10 +23,9 @@ class Tree {
       for (let child of current.children) {
         values.push(child)
       }
-      return sumOfValues;
-    }
+    } 
+    return sumOfValues;
   }
-}
 
   /** sumValues(): add up all of the values in the tree. */
   
@@ -49,5 +46,4 @@ class Tree {
 
   }
 }
-
-//module.exports = { Tree, TreeNode };
+// module.exports = {Tree, TreeNode};
