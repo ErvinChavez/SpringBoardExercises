@@ -1,28 +1,34 @@
+/** TreeNode: node for general tree. */
+
+class TreeNode {
+  constructor(val, children = []) {
+    this.val = val;//The current val looking at
+    this.children = children;//the childeren of current val looking at
+  }
+}
+
 class Tree {
   constructor(root = null) {
-    this.root = root;
+    this.root = root;//the start or root of the tree
   }
 
   /** sumValues(): add up all of the values in the tree. */
   sumValues() {
-    if (this.root === null) return 0;
-    
-    function valuesOfNode(node) {
-      let total = node.val;
-
-      for (let child of node.children) {
-        total += valuesOfNode(child);
+    let sumOfValues = 0;
+    const values = [this];//this should be the the val of the root
+    while (values.length) {
+      const current = values.shift();
+      sumOfValues += current;
+      for (let child of current.children) {
+        values.push(child)
       }
-      return total;
     }
-    return valuesOfNode(this.root);
   }
 
 
   /** countEvens(): count all of the nodes in the tree with even values. */
 
   countEvens() {
-    let counter = 0;
     //now loop through the node
     //add to counter for every node
     //return the counter at end now for total

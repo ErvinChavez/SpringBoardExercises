@@ -8,13 +8,6 @@ beforeEach(function() {
   emptyTree = new Tree();
 
   // build small tree
-  class TreeNode {
-    constructor(val){
-      this.val = val;
-      this.children = [];
-    }
-  }
-
   let nSmall = new TreeNode(1);
   let nSmall2 = new TreeNode(2);
   nSmall.children.push(nSmall2);
