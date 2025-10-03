@@ -10,20 +10,23 @@ class TreeNode {
 class Tree {
   constructor(root = null) {
     this.root = root;//the start or root of the tree
-  }
-
-  /** sumValues(): add up all of the values in the tree. */
-  sumValues() {
+ 
+    sumValues(TreeNode) {
     let sumOfValues = 0;
-    const values = [this];//this should be the the val of the root
+    const values = [this.root];//this should be the the val of the root
     while (values.length) {
       const current = values.shift();
-      sumOfValues += current;
+      sumOfValues += current.val;
       for (let child of current.children) {
         values.push(child)
       }
+      return sumOfValues;
     }
   }
+}
+
+  /** sumValues(): add up all of the values in the tree. */
+  
 
 
   /** countEvens(): count all of the nodes in the tree with even values. */
@@ -42,4 +45,4 @@ class Tree {
   }
 }
 
-module.exports = { Tree, TreeNode };
+//module.exports = { Tree, TreeNode };
