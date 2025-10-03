@@ -14,6 +14,11 @@ class Tree {
     sumValues(TreeNode) {
     let sumOfValues = 0;
     const values = [this.root];//this should be the the val of the root
+
+    if (values === null) {
+      return 0;
+    }
+
     while (values.length) {
       const current = values.shift();
       sumOfValues += current.val;
