@@ -13,15 +13,19 @@ class Tree {
       for (let child of node.children) {
         total += valuesOfNode(child);
       }
-      return valuesOfNode(this.root);
+      return total;
     }
+    return valuesOfNode(this.root);
   }
 
 
   /** countEvens(): count all of the nodes in the tree with even values. */
 
   countEvens() {
-
+    let counter = 0;
+    //now loop through the node
+    //add to counter for every node
+    //return the counter at end now for total
   }
 
   /** numGreater(lowerBound): return a count of the number of nodes
