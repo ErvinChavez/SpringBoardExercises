@@ -9,6 +9,14 @@
 <body>
     <script src="tree.js"></script>
     <script>
+
+  let nSmall = new TreeNode(1);
+  let nSmall2 = new TreeNode(2);
+  nSmall.children.push(nSmall2);
+  smallTree = new Tree(nSmall);
+
+console.log(smallTree.numGreater(0));
+
   let n = new TreeNode(1);
   let n2 = new TreeNode(2);
   let n3 = new TreeNode(3);
@@ -26,7 +34,7 @@
 
   largeTree = new Tree(n);
 
-console.log(largeTree.countEvens());
+console.log(largeTree.numGreater());
     
 </script>
 </body>
