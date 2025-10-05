@@ -37,7 +37,7 @@ class Tree {
 
   countEvens() {
     let evenVals = []; //array of even values being pushed to
-    const values = [this.root]//Starting at the root of tree
+    const values = [this.root];//Starting at the root of tree
 
     if (this.root === null) return 0;//return 0 is nothing in root 
 
@@ -58,7 +58,21 @@ class Tree {
    * whose value is greater than lowerBound. */
 
   numGreater(lowerBound) {
+    let count = 0;//the number of values greater then lowerBound
+    const values = [this.root]; //starting the checking against the root first
 
+    if(this.root === null) return 0;//if nothing in root, return 0
+
+    while (values.length) {
+      const currentVal = values.shift();//comparing the first current val
+
+      if (currentVal.val > lowerBound) {//if the current val is greater then lowerbound
+        count += 1}//add a count to the number of count
+      for (let child of currentVal.children) {//for the children of the val
+        values.push(child);//add them to the queue to compare
+      }
+    }
+    return count; //return the number of nodes higher then the lowerBound val
   }
 }
 // module.exports = {Tree, TreeNode};
