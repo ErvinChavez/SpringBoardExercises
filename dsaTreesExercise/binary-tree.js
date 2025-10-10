@@ -18,6 +18,21 @@ class BinaryTree {
 
   minDepth() {
 
+    //Start at the root 
+    const values = [{node: this.root, depth: 1}];
+
+    if (this.root === null) return 0;
+
+    while (values.length) {
+      let current = values.shift();
+      if (current.node.left === null && current.node.right === null) {
+        return current.depth;
+      } else {
+        if (current.node.left) {values.push({node: current.node.left, depth: current.depth + 1})}
+        if (current.node.right) {values.push({node: current.node.right, depth: current.depth + 1})}
+        }
+      }
+    }
   }
 
   /** maxDepth(): return the maximum depth of the tree -- that is,
