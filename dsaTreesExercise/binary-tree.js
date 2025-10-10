@@ -19,17 +19,20 @@ class BinaryTree {
   minDepth() {
 
     //Start at the root 
-    const values = [{node: this.root, depth: 1}];
+    const values = [{node: this.root, depth: 1}]; //starts at the root and gives the root a depth of 1
 
-    if (this.root === null) return 0;
+    if (this.root === null) return 0; //if no root then just return 0
 
-    while (values.length) {
-      let current = values.shift();
-      if (current.node.left === null && current.node.right === null) {
-        return current.depth;
+    while (values.length) { //while there is still values in the queue
+      let current = values.shift(); //the current value looking at
+      if (current.node.left === null && current.node.right === null) { //if the current value we're looking at has no left or right values
+        return current.depth; //return the depth of the current value/node
       } else {
-        if (current.node.left) {values.push({node: current.node.left, depth: current.depth + 1})}
-        if (current.node.right) {values.push({node: current.node.right, depth: current.depth + 1})}
+        if (current.node.left) {
+          values.push({node: current.node.left, depth: current.depth + 1});//if there is values/nodes in the left, push them to queue, add 1 to depth
+        } 
+        if (current.node.right) {
+          values.push({node: current.node.right, depth: current.depth + 1});//if there is value/node in the right, push it to the queue, add 1 to depth
         }
       }
     }
@@ -87,4 +90,5 @@ class BinaryTree {
   }
 }
 
-module.exports = { BinaryTree, BinaryTreeNode };
+
+// module.exports = { BinaryTree, BinaryTreeNode };
