@@ -7,34 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="tree.js"></script>
+    <script src="binary-tree.js"></script>
     <script>
 
-  let nSmall = new TreeNode(1);
-  let nSmall2 = new TreeNode(2);
-  nSmall.children.push(nSmall2);
-  smallTree = new Tree(nSmall);
+let smallLeft = new BinaryTreeNode(5);
+let smallRight = new BinaryTreeNode(5);
+let smallRoot = new BinaryTreeNode(6, smallLeft, smallRight);
+smallTree = new BinaryTree(smallRoot);
 
-console.log(smallTree.numGreater(0));
-
-  let n = new TreeNode(1);
-  let n2 = new TreeNode(2);
-  let n3 = new TreeNode(3);
-  let n4 = new TreeNode(4);
-  let n5 = new TreeNode(5);
-  let n6 = new TreeNode(6);
-  let n7 = new TreeNode(7);
-  let n8 = new TreeNode(8);
-
-  n.children = [n2, n3, n4];
-
-  n4.children.push(n5, n6);
-  n6.children.push(n7);
-  n7.children.push(n8);
-
-  largeTree = new Tree(n);
-
-console.log(largeTree.numGreater());
+  // build large tree
+let node6 = new BinaryTreeNode(1);
+let node5 = new BinaryTreeNode(1);
+let node4 = new BinaryTreeNode(2);
+let node3 = new BinaryTreeNode(3, node4, node6);
+let node2 = new BinaryTreeNode(5, node3, node5);
+let node1 = new BinaryTreeNode(5);
+let root = new BinaryTreeNode(6, node1, node2);
+largeTree = new BinaryTree(root);
     
 </script>
 </body>
