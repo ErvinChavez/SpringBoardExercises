@@ -90,7 +90,14 @@ class BinaryTree {
    * which is larger than lowerBound. Return null if no such value exists. */
 
   nextLarger(lowerBound) {
+    //NOTES:
     
+    //go through every node
+    //check if node is larger then the lowerBound
+    //if so, check if it it smaller then the current node that was larger then lowerBound
+    //if so make it the new best node
+    //return the best node at end
+    //if there was none, return null
   }
 
   /** Further study!
