@@ -90,14 +90,26 @@ class BinaryTree {
    * which is larger than lowerBound. Return null if no such value exists. */
 
   nextLarger(lowerBound) {
-    //NOTES:
+    const values = [this.root]//the start values, going through each node
+    const potentialBest = [];//list of all the values larger then lowerBound
     
-    //go through every node
-    //check if node is larger then the lowerBound
-    //if so, check if it it smaller then the current node that was larger then lowerBound
-    //if so make it the new best node
-    //return the best node at end
-    //if there was none, return null
+    if (this.root === null) return null;//if no node return 0
+    
+    while (values.length) {//while there are still values in queue
+      const current = values.shift()//sets the first values to be checked
+
+      if (current.val > lowerBound) {//compares that value to lowerbond
+        potentialBest.push(current.val);//pushing higher values to potentialBest array
+      }
+      if (current.left) {values.push(current.left)};//push left children to values queue
+      if (current.right) {values.push(current.right)};//push right children to values queue
+      
+    }
+    
+    if (potentialBest.length) {//if there are values in the potential best list
+      const bestValue = Math.min(...potentialBest);//creates a single value for the smallest best node
+      return bestValue;//returns the smallest value of the best value
+    } else {return null;}//return null if there was no best values in list
   }
 
   /** Further study!
