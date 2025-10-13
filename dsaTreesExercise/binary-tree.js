@@ -101,6 +101,12 @@ class BinaryTree {
       if (current.val > lowerBound) {//compares that value to lowerbond
         potentialBest.push(current.val);//pushing higher values to potentialBest array
       }
+      //Could replace the comparing with:
+      // if (current.val > lowerBound) {
+      // if (bestValue === null || current.val < bestValue) {
+      // bestValue = current.val;
+        //}
+      //}
       if (current.left) {values.push(current.left)};//push left children to values queue
       if (current.right) {values.push(current.right)};//push right children to values queue
       
