@@ -122,9 +122,39 @@ class BinaryTree {
    * areCousins(node1, node2): determine whether two nodes are cousins
    * (i.e. are at the same level but have different parents. ) */
 
-  areCousins(node1, node2) {
+  areCousins(node1, node2) {//the nodes you want to check if cousins
+  if (this.root === null) return false; // if no root return false
 
+  const values = [this.root]; //the start values, starting with root
+  const parents = new Map(); // makes a map of parents for each node
+  const depths = new Map();  // makes a map for the depth of each node
+
+  parents.set(this.root, null);//the map of parents will have values like {current value , null}
+  depths.set(this.root, 0);//the map of depth will have values like , current value, it's depth)
+
+
+  while (values.length) { // while there are still nodes in queue
+    const current = values.shift(); // get next node from queue
+
+    if (current.left) { //if children on left
+      values.push(current.left);//push to queue values
+      parents.set(current.left, current);//set the parents map value for that {current.left (the left node value), current(the left's parent)}
+      depths.set(current.left, depths.get(current) + 1);//set the child’s depth to parent’s depth + 1}
+    }
+
+    if (current.right) {//if children on right
+      values.push(current.right);//push to queue values
+      parents.set(current.right, current);//set the parents map value for that {current.right (the right node value), current(the right's parent)}
+      depths.set(current.right, depths.get(current) + 1);//set the child’s depth to parent’s depth + 1}
+    }
   }
+
+  // after traversal, check:
+  return (depths.get(node1) === depths.get(node2))//sees if the two nodes are in the same depth
+  && 
+  (parents.get(node1) !== parents.get(node2));//but also sees if they don't have the same parents
+}
+
 
   /** Further study!
    * serialize(tree): serialize the BinaryTree object tree into a string. */
