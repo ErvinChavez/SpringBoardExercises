@@ -184,9 +184,21 @@ class BinaryTree {
   /** Further study!
    * deserialize(stringTree): deserialize stringTree into a BinaryTree object. */
 
-  static deserialize() {
+  static deserialize(string) {
+
+    const stringArray = string.split(",");//array of string
+    
+    let root = new Node(stringArray[0]);//root 1
+    root.left = new Node(stringArray[1])//left 2
+    root.right = new Node(stringArray[2])//right 3
+    root.right.left = new Node(stringArray[5])//right 6
+    root.right.right = new Node(stringArray[6])//right
+
+    myTreeCopy = new BinaryTree(root);
+    return myTreeCopy;
 
   }
+
 
   /** Further study!
    * lowestCommonAncestor(node1, node2): find the lowest common ancestor
