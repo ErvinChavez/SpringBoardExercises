@@ -159,8 +159,26 @@ class BinaryTree {
   /** Further study!
    * serialize(tree): serialize the BinaryTree object tree into a string. */
 
-  static serialize() {
+  static serialize(myTree) {//places the myTree tree to be serialized
+    
+    if (myTree === null || myTree.root === null) return "";//returns null if there is no tree or tree equals null
 
+    const values = [myTree.root];//the values of the trees in a queue
+    const eachNode = [];//where each value will be pushed into
+
+    while (values.length > 0) {//while the number of values is greater then 0
+      let current = values.shift();//looks at the first value 
+
+      if (current === null) {//if that value is null
+        eachNode.push("null");//push the string "null" to eachNode array
+      } else {
+        eachNode.push(String(current.val));//if not null, push the val in string form to eachNode array
+        values.push(current.left);//push left children to the value queue
+        values.push(current.right);//push right children to the value queue
+    }
+      
+    }
+    return eachNode.join(",")//return the values in eachNode as strings
   }
 
   /** Further study!
