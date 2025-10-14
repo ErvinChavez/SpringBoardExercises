@@ -217,9 +217,24 @@ class BinaryTree {
    * of two nodes in a binary tree. */
 
   lowestCommonAncestor(node1, node2) {
-    
-  }
-}
+  function helper(node) {
+    if (node === null) return null; //if no node return null
 
+    if (node === node1 || node === node2) return node;//if node1 and node 2 are the same target node, return that node
+    
+    const left = helper(node.left); // keeps checking the left subtree child
+    const right = helper(node.right); // keeps checking the right subtree child
+
+   
+    if (left !== null && right !== null) return node; // if both left and right have a common non-null value, current node is the LCA
+    if (left !== null) {//if ONLY left is non-null or whichever side found a target
+      return left;//return left
+    } else {
+      return right;// otherwise, return right 
+  }
+  return helper(this.root); // start recursion at the root
+}
+}
+}
 
 // module.exports = { BinaryTree, BinaryTreeNode };
