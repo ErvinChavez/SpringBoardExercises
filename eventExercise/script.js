@@ -29,19 +29,19 @@ document.addEventListener("DOMContentLoaded", function ()
   document.addEventListener("dblclick", function(e){//listens for any double click on the whole document
     if (e.target.classList.contains("box")) {//if that target classList has the value "box"
       e.target.remove();//remove that target box
-    }
+    };
   });
 
   document.addEventListener("mouseover", function(e) {//listens for the mouse to hover over
     if (e.target.classList.contains("box")) {//if mouse hovers over box
      e.target.innerText = (`${e.pageX} ${e.pageY}`)//set the innerText to the mouses X and Y values
-    }
+    };
   });
 
   document.addEventListener("mouseout", function(e) {//listens for when the mouse moves out of the way
     if (e.target.classList.contains("box")) {//if mouse was on a box
       e.target.innerText = `Box ${e.target.dataset.id}`;//set the innerText to Box {the value of id for that box}
-    }
+    };
   });
 
   document.addEventListener("keydown", function(e) {//listens for when the key is press
@@ -49,6 +49,6 @@ document.addEventListener("DOMContentLoaded", function ()
 
     if (e.key === "n" || e.key === "N") {//if the n or N is pressed 
       addBox();//create a new box
-    }
+    };
   })
 });
