@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Resume</title>
+  <script>
+    async function updateCounter() {
+      const response = await fetch('https://867ng1dbg0.execute-api.us-east-1.amazonaws.com/counter', {
+        method: 'PUT'
+      });
+      const data = await response.json();
+      document.getElementById('visitor-count').innerText = data.new_count;
+    }
+    
+    window.onload = function() {
+      updateCounter();
+    }
+  </script>
+</head>
+<body>
+  <p>Visitor Count: <span id="visitor-count">Loading...</span></p>
+  <div id="header"></div>
+  <div class="stuff">
+  <br><br>
+    <h1>Ervin Chavez</h1>
+      <ul id="links">
+        <li>P: <a href="tel:+17709401414">770-940-1414</a></li>
+        <li>E: <a href="mailto:ervinchavez31@gmail.com">ervinchavez31@gmail.com</a></li>
+        <li>L:<a href="https://www.linkedin.com/in/ervinchavez/"> <u>linkedin.com/in/ervinchavez/</u></a></li>
+      </ul>
+  <hr/>
+    <br>
+  <div class="column">
+    <h2 class="head">Skills</h2>
+      <ul>
+        <li>Threat Modeling & Risk Assessments</li>
+        <li>Iaas, SaaS, PaaS</li>
+        <li>MFA Account Set-up</li>
+        <li>AWS CLI/ Configuration</li>
+        <li>IAM Roles/Budget Set-Ups</li>
+        <li>EC2 Deployment</li>
+        <li>Security Group Deployment</li>
+        <li>EC2 Instance Connect to OS</li>
+        <li>AWS Administrator Credentials</li>
+        <li>Permission Policy Set-Up</li>
+        <li>EBS Volume Attachment</li>
+        <li>AMI Creation & Attachment</li>
+        <li>Application Load Balancer Deployment</li>
+        <li>Auto-Scaling Group</li>
+        <li>Launch Template Creation</li>
+        <li>Health Checks</li>
+        <li>Simple Storage Service (S3) Deployment</li>
+        <li>JSON Document Policy Generator</li>
+        <li>S3 Web Hosting & Public Access Configuration</li>
+        <li>VPC Deployments</li>
+        <li>Private and Public Subnet Set-up</li>
+        <li>Route Table & Internet Gateway Configuration</li>
+        <li>Networking/CIDR</li>
+        <li>Git Bash</li>
+        <li>Visual Studio Code</li>
+        <li>Static Application Security Testing</li>
+        <li>Secret Scanning Implementation</li>
+        <li>Software Composition Analysis</li>
+        <li>Continuous Integration and Continuous Delivery (CI/CD)</li>
+        <li>DAST Deployment</li>
+      </ul><br>
+    <h2 class="head">Education</h2>
+      <div id="school">
+      <p><b>BS in Exercise Science</b></p>
+      <p>Georgia Gwinnett College</p>
+      </div><br>
+    <h2 class="head">Programming Languages</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul><br>
+</div>
+  <div class="column">
+    <h2 class="head">Professional Experience</h2>
+  <br>
+      <p>Chavez Tree Service</p>
+      <p><b>Digital Marketing and Web Design Manager</b></p>
+      <p>2016 - Present</p>
+        <ul>
+          <li>Developed and executed digital marketing strategies to drive online traffic and engagement.</li>
+          <li>Managed the design and development of the company website using WIX, ensuring user-friendly interface and functionality.</li>
+          <li>Conducted SEO optimization and implemented digital marketing campaigns to enhance brand visibility and reach.</li>
+          <li>Analyzed website performance metrics and user data to optimize marketing efforts and improve user experience.</li>
+          <li>Collaborated with cross-functional teams to align marketing initiatives with business objectives.</li>
+          <li>Oversaw content creation, social media management, and digital advertising campaigns.</li>
+        </ul><br>
+      <p>Chavez Tree Service</p>
+      <p><b>Manager</b></p>
+      <p>2016 - Present</p>
+        <ul>
+          <li>Managed day-to-day operations, including team supervision, project oversight, and client relations.</li>
+          <li>Implemented digital marketing strategies to promote services and increase customer engagement.</li>
+          <li>Led initiatives to improve online presence and brand awareness.</li>
+        </ul>
+  </div>
+  </div>
+    <footer class="footer"></footer>
+</body><br><br>
+
+</html>

@@ -1,0 +1,84 @@
+* {
+    max-width: 700px;
+    margin: auto;
+  }
+  
+  div {
+    border-radius: 5px;
+  }
+  
+  #header {
+    height: 40px;
+    width: 100%;
+    background-color: #ce5454;
+    position:absolute;
+    z-index: 1;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 3%
+  }
+  
+  #links {
+    list-style-type: none;
+    font-weight: bold;
+    padding-left: 0%;
+  }
+  
+  #social {
+    text-decoration: underline;
+  }
+  #school {
+    margin-left: 1%;
+  }
+  
+  .footer {
+    height: 40px;
+    width: 100%;
+    background-color: #ce5454;
+    position:absolute;
+    z-index: 1;
+  }
+  
+  .stuff {
+    display: inline;
+    margin-top: 6px;
+    margin-left: 55px;
+    width: 75%;
+    height: 1000px;
+  }
+  
+  p, li {
+    font-family: 'Cormorant Garamond';
+  }
+  
+  .head {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #8B0000;
+  }
+  
+  #name {
+    font-family: Sacramento;
+    float: right;
+    margin-top: 10px;
+    margin-right: 4%;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  @media only screen and (max-width: 430px) {
+    .left,
+    .right {
+      display: none;
+    }
+    .stuff {
+      width: 100%;
+      margin-left: 10px;
+    }
+  }
