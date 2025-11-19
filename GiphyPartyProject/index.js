@@ -18,7 +18,7 @@
 
 //PROJECT
 
-const spoonacularAPIKEY = "cea7ccbc9d564f25906a5058dde3a512";
+//const spoonacularAPIKEY = "cea7ccbc9d564f25906a5058dde3a512";
 
 //Attemp 1:
 // axios.get(`http://api.giphy.com/v1/gifs/trending?api_key=${spoonacularAPIKEY}`)
@@ -47,8 +47,40 @@ const spoonacularAPIKEY = "cea7ccbc9d564f25906a5058dde3a512";
 //Keep getting a ERR_BAD_REQUEST
 
 //Using given api_key this time:
-  async function giphyRequest() {
-    const response = await axios.get(`http://api.giphy.com/v1/gifs/trending?api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym`);
+  // async function giphyRequest() {
+  //   const response = await axios.get(`http://api.giphy.com/v1/gifs/trending?api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym`);
+  //   console.log(response);
+  // }
+  // giphyRequest();
+
+
+//Changing parameters of API slighty
+//  async function giphyRequest() {
+//     const response = await axios.get(`http://api.giphy.com/v1/gifs/trending?api_key=MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym&limit=10`);
+//     console.log(response);
+//     const imageURL = response.data.data[0].images.downsized.url;
+//     const image = document.getElementById("gifPic");
+//     image.src = imageURL;
+//   }
+//   giphyRequest();
+
+//Doing the Search for Gifs
+
+const apiKey = "MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym";
+
+const search = document.getElementById('search');
+const myForm = document.getElementById('myForm');
+const image = document.getElementById("gifPic");
+
+myForm.addEventListener('submit', async function giphyRequest(e) {
+    e.preventDefault();
+
+    const response = await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${search.value}`);
     console.log(response);
-  }
-  giphyRequest();
+    
+    const imageURL = response.data.data[0].images.downsized.url;
+    image.src = imageURL;
+
+  });
+
+

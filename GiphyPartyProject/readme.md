@@ -27,14 +27,21 @@ Take some time to note the following:
   - What is the "shape" of the <data> returned by the <axios> request
   - Play around with the object and see what properties you can access
   - What is the value and 'data type' of accessing <response.status>
+    //200
   - What is the value and 'data type' of accessing <response.data> ?
-  - What is the value and 'data type' of accessing <response.data.data> ?
+    //50 Arrays of Objects
+  - What is the value and 'data type' of accessing <response.data.data> ? 
+    //gif
   - What is the value and 'data type' of accessing <response.data.data[0]> ?
+    //value:An Object type:'gif'
 
 Take time to explore the data as well
   - What is the value of <response.data.data.length> ?
+    //50 arrays
   - What is the value and 'data type' of accessing <response.data.data[0].images> ?
+    //An object with objects
   - What is the value and 'data type' of accessing <response.data.data[0].rating> ?
+    //rating: "g"
 
 <br/>
 
@@ -52,7 +59,8 @@ Take time to explore the data as well
 ```
 Take some time to note some changes:
   - What is the value of <response.data.data.length> now ?
-
+    //length: 10
+    
 Take some time to look over the linked quick start guide as well
 
 <br/>
