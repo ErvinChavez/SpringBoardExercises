@@ -20,6 +20,11 @@
 
 let categories = [];
 
+async function jeopardyCategories() {
+ const response = await axios.get("https://projects.springboard.com/jeopardy/api/categories?id=7");
+ console.log(response.data[0].id);//this give me the id for just one category
+}
+jeopardyCategories();
 
 /** Get NUM_CATEGORIES random category from API.
  *
