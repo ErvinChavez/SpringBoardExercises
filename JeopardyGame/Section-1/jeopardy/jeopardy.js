@@ -21,18 +21,34 @@
 let categories = [];
 
 async function jeopardyCategories() {
- const response = await axios.get("https://projects.springboard.com/jeopardy/api/categories?id=7");
- console.log(response.data[0].id);//this give me the id for just one category
+  const response = await axios.get(
+    "https://projects.springboard.com/jeopardy/api/categories?count=100"
+  );
+  const data = response.data;
+  console.log(data); //give me the data of all 100 categories(14 showed per page only)
+  const random6 = _.sampleSize(data, 6); //this returns 6 random arrays of the data
+  //console.log(random6[0].id); //gives me the id from the first array of categories
+  categories.push(random6); //push the random 6 arrays to categories
 }
 jeopardyCategories();
+console.log(categories); //and array of the 6 randoms now
+
+//So now maybe a loop through categories, returning the titles of each??
+while (categories.length > 0) {
+  //NEED TO SOMEHOW return ARRAY of IDs Only!!
+  let categoriesIds = categories[0].id;
+  console.log(categoriesIds);
+}
 
 /** Get NUM_CATEGORIES random category from API.
  *
  * Returns array of category ids
  */
 
-function getCategoryIds() {
-}
+//After selecting the random, somehow return there ids for each
+//OR use their ids to get their info(title, clues)
+
+function getCategoryIds() {}
 
 /** Return object with data about a category:
  *
@@ -46,8 +62,7 @@ function getCategoryIds() {
  *   ]
  */
 
-function getCategory(catId) {
-}
+function getCategory(catId) {}
 
 /** Fill the HTML table#jeopardy with the categories & cells for questions.
  *
@@ -57,8 +72,7 @@ function getCategory(catId) {
  *   (initally, just show a "?" where the question/answer would go.)
  */
 
-async function fillTable() {
-}
+async function fillTable() {}
 
 /** Handle clicking on a clue: show the question or answer.
  *
@@ -68,21 +82,17 @@ async function fillTable() {
  * - if currently "answer", ignore click
  * */
 
-function handleClick(evt) {
-}
+function handleClick(evt) {}
 
 /** Wipe the current Jeopardy board, show the loading spinner,
  * and update the button used to fetch data.
  */
 
-function showLoadingView() {
-
-}
+function showLoadingView() {}
 
 /** Remove the loading spinner and update the button used to fetch data. */
 
-function hideLoadingView() {
-}
+function hideLoadingView() {}
 
 /** Start game:
  *
@@ -91,8 +101,7 @@ function hideLoadingView() {
  * - create HTML table
  * */
 
-async function setupAndStart() {
-}
+async function setupAndStart() {}
 
 /** On click of start / restart button, set up game. */
 
