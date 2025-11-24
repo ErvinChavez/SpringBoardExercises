@@ -18,7 +18,7 @@
 //    ...
 //  ]
 
-let categories = [];
+let categories = []; //Need to push the catergories here of the random 6
 
 /** Get NUM_CATEGORIES random category from API.
  *
@@ -28,10 +28,16 @@ let categories = [];
 async function getCategoryIds() {
   const response = await axios.get(
     "https://projects.springboard.com/jeopardy/api/categories?count=100"
-  );
-  const data = response.data;
-  const random6 = _.sampleSize(data, 6); //this returns 6 random arrays of the data
-  return random6.map((categ) => categ.id);
+  ); //load the api for count 100
+  const data = response.data; //target the data of the response[an array]
+  const random6 = _.sampleSize(data, 6); //this returns 6 random from the data[an array]
+  return random6.map((categ) => categ.id); //this returns the ids of each of the random categories[an array]
+
+  /**what do i need next:
+   * push to categories
+   * be able to get title from categories
+   * and be able to get the clues too
+   */
 }
 /** Return object with data about a category:
  *
