@@ -20,36 +20,19 @@
 
 let categories = [];
 
-async function jeopardyCategories() {
-  const response = await axios.get(
-    "https://projects.springboard.com/jeopardy/api/categories?count=100"
-  );
-  const data = response.data;
-  console.log(data); //give me the data of all 100 categories(14 showed per page only)
-  const random6 = _.sampleSize(data, 6); //this returns 6 random arrays of the data
-  //console.log(random6[0].id); //gives me the id from the first array of categories
-  categories.push(random6); //push the random 6 arrays to categories
-}
-jeopardyCategories();
-console.log(categories); //and array of the 6 randoms now
-
-//So now maybe a loop through categories, returning the titles of each??
-while (categories.length > 0) {
-  //NEED TO SOMEHOW return ARRAY of IDs Only!!
-  let categoriesIds = categories[0].id;
-  console.log(categoriesIds);
-}
-
 /** Get NUM_CATEGORIES random category from API.
  *
  * Returns array of category ids
  */
 
-//After selecting the random, somehow return there ids for each
-//OR use their ids to get their info(title, clues)
-
-function getCategoryIds() {}
-
+async function getCategoryIds() {
+  const response = await axios.get(
+    "https://projects.springboard.com/jeopardy/api/categories?count=100"
+  );
+  const data = response.data;
+  const random6 = _.sampleSize(data, 6); //this returns 6 random arrays of the data
+  return random6.map((categ) => categ.id);
+}
 /** Return object with data about a category:
  *
  *  Returns { title: "Math", clues: clue-array }
@@ -62,8 +45,12 @@ function getCategoryIds() {}
  *   ]
  */
 
-function getCategory(catId) {}
-
+async function getCategory(catId) {
+  const responseid = await axios.get(
+    `https://projects.springboard.com/jeopardy/api/category?id=${catId}`
+  );
+  console.log(responseid);
+}
 /** Fill the HTML table#jeopardy with the categories & cells for questions.
  *
  * - The <thead> should be filled w/a <tr>, and a <td> for each category
