@@ -54,20 +54,23 @@ async function getCategoryIds() {
 async function getCategory(catId) {
   const responseid = await axios.get(
     `https://projects.springboard.com/jeopardy/api/category?id=${catId}`
-  );
-  const title = responseid.data.title;
-  const clues = responseid.data.clues.slice(0, 5);
+  ); //waits for the get(url)
+  const title = responseid.data.title; //the title of the id
+  const clues = responseid.data.clues.slice(0, 5); //the 5 clues of each id
 
   const formattedClues = clues.map((clue) => {
+    //for each clue
     return {
-      question: clue.question,
-      answer: clue.answer,
-      showing: null,
+      //format just clues like this in object
+      question: clue.question, //the question of clue
+      answer: clue.answer, //the answer of the clue
+      showing: null, //show none
     };
   });
   return {
-    title: title,
-    clues: formattedClues,
+    //format the whole thing like this in object
+    title: title, //title of id
+    clues: formattedClues, //then the clues
   };
 }
 /** Fill the HTML table#jeopardy with the categories & cells for questions.
@@ -108,9 +111,16 @@ function hideLoadingView() {}
  * */
 
 async function setupAndStart() {
-  getCategoryIds() {
-    return 
-  }  
+  categories = []; //reset
+
+  const ids = await getCategoryIds(); //get 6 random IDs
+
+  for (let id of ids) {
+    const catData = await getCategory(id); //get the full category data
+    categories.push(catData); //stores it
+  }
+
+  await fillTable(); //draw the board
 }
 
 /** On click of start / restart button, set up game. */
