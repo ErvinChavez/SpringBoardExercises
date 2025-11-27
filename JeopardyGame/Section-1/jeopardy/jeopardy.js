@@ -17,6 +17,8 @@
 //    },
 //    ...
 //  ]
+const startBtn = document.getElementById("start-btn");
+startBtn.addEventListener("click", setupAndStart);
 
 let categories = []; //Need to push the catergories here of the random 6
 
@@ -81,7 +83,43 @@ async function getCategory(catId) {
  *   (initally, just show a "?" where the question/answer would go.)
  */
 
-async function fillTable() {}
+async function fillTable() {
+  const thead = document.querySelector("#jeopardy thead"); //target thead of table
+  const tbody = document.querySelector("#jeopardy tbody"); //target tbody of table
+
+  // Clear old content
+  thead.innerHTML = ""; //clears any existing rows
+  tbody.innerHTML = ""; //clears any existing rows
+
+  const headRow = document.createElement("tr"); //creates the header
+
+  for (let cat of categories) {
+    //for each cat (object) inside the categories array
+    const th = document.createElement("th"); //create a th element
+    th.innerText = cat.title; // using innerText to make text of th equal the title
+    headRow.appendChild(th); //make th the child of the headRow
+  }
+
+  thead.appendChild(headRow); //make headRow the child of thead
+
+  for (let i = 0; i < 5; i++) {
+    //create 5 rows (1 for each clue in a category)
+    const row = document.createElement("tr"); //create a tr element
+
+    for (let j = 0; j < categories.length; j++) {
+      //wloop thorught all 6 categories to create 6 cells in this row
+      const cell = document.createElement("td"); //create a td element eqaul to cell
+      cell.innerText = "?"; //th inner text of cell will be just start with a "?"
+
+      cell.setAttribute("data-cat", j); //set the attribute data-cat(the catergory index) to j
+      cell.setAttribute("data-clue", i); //set the attribute data-clue(the clue index inside that category) to i
+
+      row.appendChild(cell); //add the cell as a child for row
+    }
+
+    tbody.appendChild(row); //then add the completed row as a child for tbody
+  }
+}
 
 /** Handle clicking on a clue: show the question or answer.
  *
@@ -91,17 +129,64 @@ async function fillTable() {}
  * - if currently "answer", ignore click
  * */
 
-function handleClick(evt) {}
+// This function handles clicks on individual clue cells
+function handleClick(evt) {
+  const cell = evt.target; //the clicks on individual clue cells
+
+  // Get category and clue indexes from data attributes
+  const catIndex = Number(cell.getAttribute("data-cat"));
+  const clueIndex = Number(cell.getAttribute("data-clue"));
+
+  const clue = categories[catIndex].clues[clueIndex]; // the clue is here
+
+  // Decide what to show based on the clue's current state
+  if (clue.showing === null) {
+    cell.innerText = clue.question; // show question
+    clue.showing = "question";
+  } else if (clue.showing === "question") {
+    cell.innerText = clue.answer; // show answer
+    clue.showing = "answer";
+  }
+  // if clue.showing === "answer", do nothing
+}
+
+// Attach the click handler to all td cells after filling the table
+function attachClickHandlers() {
+  const cells = document.querySelectorAll("#jeopardy td");
+  cells.forEach((cell) => {
+    cell.addEventListener("click", handleClick); //attach click handler to all cells
+  });
+}
 
 /** Wipe the current Jeopardy board, show the loading spinner,
  * and update the button used to fetch data.
  */
 
-function showLoadingView() {}
+function showLoadingView() {
+  document.getElementById("jeopardy").style.display = "none";
+
+  let loading = document.getElementById("loading");
+  if (!loading) {
+    // create the loading element if it doesn't exist
+    loading = document.createElement("div");
+    loading.id = "loading";
+    loading.classList.add("spinner");
+    document.body.insertBefore(loading, document.getElementById("jeopardy"));
+  } else {
+    loading.style.display = "block"; // show it if already exists
+  }
+}
 
 /** Remove the loading spinner and update the button used to fetch data. */
 
-function hideLoadingView() {}
+function hideLoadingView() {
+  document.getElementById("jeopardy").style.display = "table";
+
+  const loading = document.getElementById("loading");
+  if (loading) {
+    loading.style.display = "none"; // hide the loading message
+  }
+}
 
 /** Start game:
  *
@@ -113,6 +198,8 @@ function hideLoadingView() {}
 async function setupAndStart() {
   categories = []; //reset
 
+  showLoadingView(); //show the loading message
+
   const ids = await getCategoryIds(); //get 6 random IDs
 
   for (let id of ids) {
@@ -121,6 +208,9 @@ async function setupAndStart() {
   }
 
   await fillTable(); //draw the board
+  attachClickHandlers(); //make cells clickable
+
+  hideLoadingView(); //hide loading message
 }
 
 /** On click of start / restart button, set up game. */
