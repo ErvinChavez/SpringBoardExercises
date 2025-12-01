@@ -1,4 +1,4 @@
 const RandomNum = () => {
-    const rand = Math.floor(Math.random() * 10) + 1;
-    return <h3>{rand}</h3>
-}
+  const num = Math.floor(Math.random() * 100) + 1;
+  return <p>Random number: {num}</p>;
+};

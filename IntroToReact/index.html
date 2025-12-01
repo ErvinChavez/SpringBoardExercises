@@ -3,21 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shibas</title>
+  <title>React Lesson Starter</title>
 </head>
 <body>
   <div id="root"></div>
 
-  <script src="https://unpkg.com/react/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+  <!-- Correct React URLs -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Babel for JSX -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <script src="Shiba.js" type="text/babel"></script>
-  <script src="SharPei.js" type="text/babel"></script>
-  <script src="RandomNum.js" type="text/babel"></script>
-  <script src="Animals.js" type="text/babel"></script>
-  <script src="Bouncer.js" type="text/babel"></script>
+  <!-- Your component files -->
+<script src="Animals.js" type="text/babel" data-presets="react"></script>
+<script src="Bouncer.js" type="text/babel" data-presets="react"></script>
+<script src="RandomNum.js" type="text/babel" data-presets="react"></script>
+<script src="Shiba.js" type="text/babel" data-presets="react"></script>
+<script src="SharPei.js" type="text/babel" data-presets="react"></script>
+<script src="App.js" type="text/babel" data-presets="react"></script>
 
-  <script src="App.js" type="text/babel"></script>
 </body>
 </html>
