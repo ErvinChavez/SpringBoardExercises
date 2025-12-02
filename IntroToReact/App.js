@@ -11,6 +11,7 @@ const App = () => {
       <Shiba />
       <SharPei />
       <Shiba />
+      <TodoList todos={["walk chicken", "feed chicken", "eat chickens"]}/>
     </div>
   );
 };
