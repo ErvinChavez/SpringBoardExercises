@@ -1,10 +1,13 @@
 const App = () => {
   return (
     <div>
+      <Alert>
+        <RandomNum />
+        <RandomNum />
+      </Alert>
       <Animals name="Stevie Chicks" species="Silkie Chicken" isCute={true} />
       <RandomNum />
-      <RandomNum />
-      <RandomNum />
+      
       <Bouncer age={19} />
       <Bouncer age={11} />
       <Bouncer age={39} />
@@ -12,6 +15,7 @@ const App = () => {
       <SharPei />
       <Shiba />
       <TodoList todos={["walk chicken", "feed chicken", "eat chickens"]}/>
+      
     </div>
   );
 };
