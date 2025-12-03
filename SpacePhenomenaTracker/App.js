@@ -24,19 +24,19 @@ function App() {
           const randomIndex = Math.floor(
             Math.random() * observationStatuses.length
           );
+          
           const observationStatus = observationStatuses[randomIndex];
-          let prepMessage = (randomElement = observationStatuses[2])
-            ? "Gear up with your best equipment"
-            : null;
+
+          const prepMessage = observationStatus === observationStatuses[2]? "Gear up with your best equipment" : null;
 
           return (
-            <li key={spacePhenomena.name}>
-              {[
-                phenomena.emoji,
-                phenomena.name,
-                observationStatus,
-                prepMessage,
-              ]}
+            <li key={phenomena.id}>
+              <div>
+                {phenomena.emoji},
+                {phenomena.name},
+                {observationStatus},
+                {prepMessage}
+              </div>
             </li>
           );
         })}
