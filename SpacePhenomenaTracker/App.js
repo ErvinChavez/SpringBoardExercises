@@ -14,7 +14,35 @@ function App() {
 
   const observationStatuses = ["🔭 Visible", "🌫 Faint", "🚀 Prime for Study"];
 
-  return <div>{/* <!-- TODO --> */}</div>;
+  return (
+    <div>
+      <h1>
+        <b>Space Phenomena Tracker</b>
+      </h1>
+      <ul>
+        {spacePhenomena.map((phenomena) => {
+          const randomIndex = Math.floor(
+            Math.random() * observationStatuses.length
+          );
+          const observationStatus = observationStatuses[randomIndex];
+          let prepMessage = (randomElement = observationStatuses[2])
+            ? "Gear up with your best equipment"
+            : null;
+
+          return (
+            <li key={spacePhenomena.name}>
+              {[
+                phenomena.emoji,
+                phenomena.name,
+                observationStatus,
+                prepMessage,
+              ]}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
