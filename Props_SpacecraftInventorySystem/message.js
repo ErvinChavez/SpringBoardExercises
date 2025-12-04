@@ -1,8 +1,3 @@
-function Message (/* TODO: Take the props. */)
-{
-	return (
-		<div>
-			{/* <!-- TODO: Render children. --> */}
-		</div>
-	);
+function Message(props) {
+  return <div>{/* <!-- TODO: Render children. --> */}</div>;
 }
