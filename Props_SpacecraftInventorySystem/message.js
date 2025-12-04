@@ -1,3 +1,5 @@
 function Message(props) {
-  return <div>{/* <!-- TODO: Render children. --> */}</div>;
+  return  <div>
+    {props.children}
+  </div>;
 }
