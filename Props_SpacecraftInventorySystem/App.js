@@ -21,18 +21,24 @@ function App() {
     <div>
       <h1>Inventory</h1>
       <ol>
-        {/* <!-- TODO: Render each inventory item as a list item. --> */    
-          inventoryItems.map((item, index) => ( //for each item
-            <li key={index}>
-              <InventoryItem //Run inventoryItem function
-              name={item.name}  //set inventoryItem function name
-              type={item.type}  //set inventoryItem function type
-              quantity={item.quantity}  //set inventoryItem function quantity
-              price={item.price}  //set inventoryItem function price
-              />
-            </li>
-          ))
-      }
+        {
+          /* <!-- TODO: Render each inventory item as a list item. --> */
+          inventoryItems.map(
+            (
+              item,
+              index //for each item
+            ) => (
+              <li key={index}>
+                <InventoryItem //Run inventoryItem function
+                  name={item.name} //set inventoryItem function name
+                  type={item.type} //set inventoryItem function type
+                  quantity={item.quantity} //set inventoryItem function quantity
+                  price={item.price} //set inventoryItem function price
+                />
+              </li>
+            )
+          )
+        }
       </ol>
     </div>
   );

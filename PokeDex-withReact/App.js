@@ -4,4 +4,10 @@
 this becomes useful when you build sites that compose several
  different parts together.)*/
 
- 
+function App() {
+  return (
+    <div>
+      <Pokedex />
+    </div>
+  );
+}
