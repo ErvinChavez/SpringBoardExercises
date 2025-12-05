@@ -4,8 +4,9 @@
 provide a default list of Pokemon characters to show.
 use this list for a good set of defaults:*/
 
-// https://github.com/PokeAPI/sprites/tree/master/sprites/pokemon
+// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png
 
+function Pokecard() {
 const defaultProps = [
   {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
   {id: 7, name: 'Squirtle', type: 'water', base_experience: 63},
@@ -17,3 +18,25 @@ const defaultProps = [
   {id: 133, name: 'Eevee', type: 'normal', base_experience: 65}
 ];
 
+const pokeImageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`
+          
+return (
+  <div>
+    <ul>
+      { 
+        defaultProps.map((item, index) => (
+          
+          <li key={index}>
+            <Pokedex 
+              name={item.name}
+              img={pokeImageSrc}
+              type={item.type}
+              base_experience={item.base_experience}
+            />
+          </li>
+        ))
+    }
+    </ul> 
+  </div>
+);
+}
