@@ -6,8 +6,9 @@ this becomes useful when you build sites that compose several
 
 function App() {
   return (
-    <div>
-      <Pokedex />
+    //run Pokedex, which will return a pokecard for each pokemon 
+    <div> 
+      <Pokedex /> 
     </div>
   );
 }

@@ -2,19 +2,19 @@
 describing different pokemon, and renders a 
 sequence of Pokecard components.*/
 
-function Pokedex({pokemon}) {
+function Pokedex({pokemon}) { //Run the Pokedex function with pokemon as prop
 return (
   <div>
     <ul>
       { 
-        pokemon.map((item, index) => (
-          
-          <li key={index}>
-            <Pokecard 
-              id={item.id}
-              name={item.name}
-              type={item.type}
-              base_experience={item.base_experience}
+        pokemon.map((item, index) => ( //for each pokemon
+          //make a li for each pokemon
+          <li key={index}> 
+            <Pokecard //run Pokecard for each
+              id={item.id} //id as id prop
+              name={item.name} //name as name prop
+              type={item.type} //type as type prop 
+              base_experience={item.base_experience} //base_experience as base_experience prop
             />
           </li>
         ))
@@ -23,8 +23,8 @@ return (
   </div>
 );
 }
-Pokedex.defaultProps = {
-    pokemon: [
+Pokedex.defaultProps = { //set a default prop for pokedex
+    pokemon: [ //this pokemon list is the default prop
   {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
   {id: 7, name: 'Squirtle', type: 'water', base_experience: 63},
   {id: 11, name: 'Metapod', type: 'bug', base_experience: 72},
