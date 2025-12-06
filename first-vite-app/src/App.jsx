@@ -3,6 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import square from './helpers';
+
+console.log("Square Result:", square(7));
+
 function App() {
   const [count, setCount] = useState(0)
 
