@@ -6,4 +6,6 @@ function sing() {
   return "LA LA LA!!!";
 }
 
-export default square;
+const secretNum = 129083921863;
+
+export {square, sing, secretNum}

@@ -3,9 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-import square from './helpers';
+import {square, sing, secretNum }from './helpers'
 
 console.log("Square Result:", square(7));
+console.log("SING:", sing());
+console.log("Secret Num Is:", secretNum)
 
 function App() {
   const [count, setCount] = useState(0)
