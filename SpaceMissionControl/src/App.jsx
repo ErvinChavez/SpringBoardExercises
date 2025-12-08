@@ -1,3 +1,7 @@
+import styles from "./App.module.css";  //stlyes for this component
+
+import MissionControl from "./components/missionControl.js"; //import the MissionControl component
+
 function App ()
 {
 	const INITIAL_MISSIONS = [
@@ -13,10 +17,11 @@ function App ()
 		{id: 10, name: "Pluto Reclamation", status: "Planned", crew: ["Sam", "Tina"]}
 	];
 
-	return (
-		<>
-		</>
+	return ( //run the MissionControl with the initialMissions as the value for that components prop.
+		<div className={styles.mainContainer}>
+			<MissionControl initialMissions={INITIAL_MISSIONS} />
+		</div>
 	);
 }
 
-export default App;
+export default App; //export the App component
