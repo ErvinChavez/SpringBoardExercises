@@ -1,19 +1,27 @@
-function MissionAction({ id, updateStatus }) {
-  // id → identifies which mission we are changing
-  // updateStatus → function from MissionControl to change mission status
+import styles from "./missionAction-styles.css";
 
+function MissionAction({ missionId, onUpdateMissionStatus }) {
+  // missionId = identifies which mission is being updated
+  // onUpdateMissionStatus = callback function from MissionControl
   return (
     <>
-      <button onClick={() => updateStatus(id, "Planned")}>Set Planned</button>
-      {/* Calls updateStatus with id + the new status */}
-
-      <button onClick={() => updateStatus(id, "Active")}>Launch Mission</button>
-      {/* Change mission to Active */}
-
-      <button onClick={() => updateStatus(id, "Completed")}>
-        Complete Mission
+      <button
+        className={styles.button}
+        onClick={
+          () => onUpdateMissionStatus(missionId, "Active") //status to Active
+        }
+      >
+        Launch
       </button>
-      {/* Change mission to Completed */}
+
+      <button
+        className={styles.button}
+        onClick={
+          () => onUpdateMissionStatus(missionId, "Completed") //status to Completed
+        }
+      >
+        Complete
+      </button>
     </>
   );
 }

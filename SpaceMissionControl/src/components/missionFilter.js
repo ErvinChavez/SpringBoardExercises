@@ -1,19 +1,25 @@
-function MissionFilter({ currentFilter, setFilter }) {
-  // currentFilter → tells user which filter is active
-  // setFilter → updates the filter state in MissionControl
+import styles from "./missionFilter-styles.css";
+
+function MissionFilter({ setFilter }) {
+  // setFilter = function from parent (MissionControl) to update the filter state
+  const STATUSES = ["All", "Planned", "Active", "Completed"]; // Array of all possible filter statuses
 
   return (
     <>
-      <h3>Filter Missions</h3>
-
-      {/* Each button sets filter to a new value */}
-      <button onClick={() => setFilter("All")}>All</button>
-      <button onClick={() => setFilter("Planned")}>Planned</button>
-      <button onClick={() => setFilter("Active")}>Active</button>
-      <button onClick={() => setFilter("Completed")}>Completed</button>
-
-      <p>Current filter: {currentFilter}</p>
-      {/* Display the currently active filter */}
+      {STATUSES.map(
+        (
+          status,
+          index //For each status in STATUSES, render a button
+        ) => (
+          <button
+            key={index}
+            onClick={() => setFilter(status)} //Clicking a button calls setFilter → updates parent state → UI re-renders
+            className={styles.button}
+          >
+            {status}
+          </button>
+        )
+      )}
     </>
   );
 }

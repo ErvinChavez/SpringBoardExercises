@@ -1,25 +1,17 @@
+import styles from "./missionCard-styles.css";
+
 function MissionCard({ name, status, crew }) {
-  // This component ONLY displays mission info — no logic here.
+  // Receives props from MissionControl
+  // name = mission name
+  // status = mission status
+  // crew = array of crew member names
 
   return (
     <>
-      <h2>{name}</h2>
-      {/* Mission name */}
+      <h2 className={styles.title}>{name}</h2>
 
-      <p>
-        <strong>Status:</strong> {status}
-      </p>
-      {/* Mission status */}
-
-      <p>
-        <strong>Crew Members:</strong>
-      </p>
-      <ul>
-        {/* Loop through crew array */}
-        {crew.map((member, id) => (
-          <li key={id}>{member}</li> // Use index as key since names aren't guaranteed unique
-        ))}
-      </ul>
+      <p className={styles.detail}>Status: {status}</p>
+      <p className={styles.detail}>Crew: {crew.join(", ")}</p>
     </>
   );
 }
