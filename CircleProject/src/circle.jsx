@@ -1,15 +1,18 @@
 import React from "react";
 import "./circle.css";
 
-const Circle = (props) => {
+const Circle = ({color, idx, x, y}) => {
     return (
         <div 
         className="Circle"
         style = {{
-            backgroundColor: props.color
+            backgroundColor: color,
+            position: 'absolute',
+            top: `${y}vh`,
+            left:`${x}vw`
         }}
         >
-            {props.idx +1}    
+            {idx +1}    
         </div>
     );
 };
