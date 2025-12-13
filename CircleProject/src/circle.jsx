@@ -1,9 +1,10 @@
 import React from "react";
-import "./circle.css";
+import "./Circle.css";
 
 const Circle = ({color, idx, x, y}) => {
     return (
         <div 
+        onClick={() => changePosition(idx)}
         className="Circle"
         style = {{
             backgroundColor: color,
