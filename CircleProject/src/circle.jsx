@@ -1,7 +1,7 @@
 import React from "react";
 import "./Circle.css";
 
-const Circle = ({color, idx, x, y}) => {
+const Circle = ({color, idx, x, y, changePosition }) => {
     return (
         <div 
         onClick={() => changePosition(idx)}
@@ -13,7 +13,7 @@ const Circle = ({color, idx, x, y}) => {
             left:`${x}vw`
         }}
         >
-            {idx +1}    
+            {idx + 1}    
         </div>
     );
 };

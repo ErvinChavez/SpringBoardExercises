@@ -17,7 +17,6 @@ const ColoredCircles = () => {
 //         copy[idx].x = getRandom();
 //         copy[idx].y = getRandom();
 //         return copy;
-
 //         })
 //     }
 const changePosition = idx => {
