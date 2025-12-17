@@ -3,14 +3,14 @@ import React from "react";
 // and the enemy's health to 100. 
 // These health values will change based on gameplay actions.
 
-const InitialHealth = ({health = 100}) => {
+const InitialHealth = (playersHealth = 100, enemysHealth = 100) => {
     //Am i using some type of useState here
     //This should be the starting health of the player and enemy
 
-
     return (
         <div className="Health">
-            {health}
+            <p className="playersHealth">{playersHealth}</p>
+            <p className="enemysHealth">{enemysHealth}</p>
         </div>
     );
 }
