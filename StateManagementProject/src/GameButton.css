@@ -1,0 +1,25 @@
+.attack {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  height: 30vh;
+}
+
+.attack button,
+.restart button
+{
+  width: 120px;
+  height: 120px;
+  color: #ffffff;
+  border: 10px solid #ff2727;
+  border-radius: 100%;
+  background-color: #ff9812;
+}
+
+.restart button
+{
+  border-color: #ffffff;
+  background-color: transparent;
+}

@@ -1,0 +1,25 @@
+
+.player, .enemy {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  height: 30vh;
+}
+
+.player {
+  align-items: flex-start;
+  color: #62ff62;
+}
+
+.enemy {
+  align-items: flex-end;
+  color: #ff2727;
+}
+
+.score
+{
+  display: inline-block;
+  width: 50px;
+}
