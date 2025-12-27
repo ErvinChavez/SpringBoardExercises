@@ -9,24 +9,32 @@ import './App.css'
  * return API data as JSON
  * retrieve data needed from the data now
  * How many compondents do i need ??
- * Still need to use useState and useEffect
+ * Still need to use useState and useRef
+ * useState will render a change to the state
+ * useRef will not render a change but how will I use it here?
 */
 
 
 function App() {
+
+  const [] = useState();
+
+
   useEffect(() => {
     fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
     })
-  },)
+  })
 
 
   return (
     <>
+
     </>
   )
 }
 
 export default App
+
