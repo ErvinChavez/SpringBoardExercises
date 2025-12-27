@@ -3,6 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+/**NOTES: 
+ * From my understanding useRef is used to call the API once and not render a change
+ * Fetch from the API
+ * return API data as JSON
+ * retrieve data needed from the data now
+ * How many compondents do i need ??
+ * Still need to use useState and useEffect
+*/
+
+
 function App() {
   useEffect(() => {
     fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
