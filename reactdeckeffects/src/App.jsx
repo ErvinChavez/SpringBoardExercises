@@ -11,30 +11,32 @@ import './App.css'
  * How many compondents do i need ??
  * Still need to use useState and useRef
  * useState will render a change to the state
+ * the button click will render the change(to draw a new card)
  * useRef will not render a change but how will I use it here?
+ * The change will be from te button
 */
 
 
 function App() {
 
-  const [] = useState();
+  const [cardDrawn, setDrawCard] = useState();
 
 
-  useEffect(() => {
-    fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
+ 
+    useEffect(() => {
+      fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
     })
-  })
-
+  }
 
   return (
     <>
-
+      
     </>
   )
-}
 
 export default App
 
