@@ -21,14 +21,16 @@ function getDeck() {
   fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
       .then((res) => res.json())
       .then((data) => {
-        deckId.append(data.deck_id);
+        deckId += data.deck_id;
       })
 }
 
+
+
 //values being used
-const deckId = ""
-const cardCode = ""
-const cardImage = ""
+let deckId = ""
+let cardCode = ""
+let cardImage = ""
 
 
 //function getCard fetchs the one card, and returns the card image and card code
@@ -36,8 +38,8 @@ function getCard() {
   fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
   .then((res) => res.json())
   .then((data) => {
-    cardCode.append(data.cards[0].code) //append the cardCode
-
+    cardCode += data.cards[0].code; //append the cardCode
+    cardImage += data.cards[0].image; //append the image
   })
 }
 //Get the image, making an image element.
