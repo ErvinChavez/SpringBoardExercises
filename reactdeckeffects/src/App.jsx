@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 /**NOTES: 
@@ -17,20 +15,20 @@ import './App.css'
 */
 
 //function getDeck fetchs the deck, NOT the card, return the deck.id to use same deck
-function getDeck() {
-  fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
-      .then((res) => res.json())
-      .then((data) => {
-        deckId += data.deck_id;
-      })
-}
+// function getDeck() {
+//   fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         deckId += data.deck_id;
+//       })
+// }
 
 
 
-//values being used
-let deckId = ""
-let cardCode = ""
-let cardImage = ""
+// //values being used
+// let deckId = ""
+// let cardCode = ""
+// let cardImage = ""
 
 
 //function getCard fetchs the one card, and returns the card image and card code
@@ -42,6 +40,7 @@ function getCard() {
     cardImage += data.cards[0].image; //append the image
   })
 }
+
 
 
 
@@ -66,6 +65,39 @@ function App() {
     if remaining is now 0
       it should disappear the click button
 
+      This part is actually very good:
+
+Start with the deck already fetched BUT the button is the on thing visible on page load
+
+Return deck id
+
+Button click fetches a new card
+
+Remaining decreases
+
+If remaining is 0 → disable or stop
+
   */
+
+
+//this fetches the number of decks and the deck ID
+fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
+  .then((res) => res.json())
+  .then((data) => {
+    deckId += data.deck_id;
+  })
+
+
+
+//function getCard fetchs the one card, and returns the card image and card code
+function getCard() {
+  fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
+  .then((res) => res.json())
+  .then((data) => {
+    cardCode += data.cards[0].code; //append the cardCode
+    cardImage += data.cards[0].image; //append the image
+  })
+}
+
 }
 export default App
