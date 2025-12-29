@@ -42,6 +42,10 @@ function getCard() {
     cardImage += data.cards[0].image; //append the image
   })
 }
+
+
+
+
 //Get the image, making an image element.
     const imgElement = document.createElement('img');
     imgElement.src = data.cards[0].image;
@@ -49,23 +53,19 @@ function getCard() {
 
 
 function App() {
+  /*
+  How Would I do it:
 
-//   const [cardDrawn, setDrawCard] = useState();
+  -Start with the deck already fetched that is shuffled and deck count is one
+    then return that deck id to keep using that same deck
 
+  the button click will render the change of the state to:
+    fetch url to draw a card using the same deck id to use same deck
+    for ever card append it to outside variable with its image and card value
+    the remaining cards should decrease by 1
+    if remaining is now 0
+      it should disappear the click button
 
- 
-  //   useEffect(() => {
-  //     fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     })
-  //   })
-
-  // return (
-  //   <>
-      
-  //   </>
-  // )
+  */
 }
 export default App
