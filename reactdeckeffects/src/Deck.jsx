@@ -16,7 +16,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import axios from "axios";
-// import "./Deck.css";
+import "./Deck.css";
 
 const API_BASE_URL = "https://deckofcardsapi.com/api/deck"; //variable for the API url
 /** Deck: uses deck API, allows drawing card at a time. */

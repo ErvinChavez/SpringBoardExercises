@@ -15,7 +15,7 @@
 
 
 import React, { useState } from "react";
-// import "./Card.css";
+import "./Card.css";
 
 /** Single card: just renders the card as received from deck. */
 
