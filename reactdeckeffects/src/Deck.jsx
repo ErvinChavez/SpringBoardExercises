@@ -130,7 +130,9 @@ function Deck() { //Ask yourself here, “What data fully describes this screen?
   const [deck, setDeck] = useState(null);//Do i have a deck yet? helped by the useEffect to render the deck in
   const [drawn, setDrawn] = useState([]);//What cards have been drawn, should have the id, name , and image
   const [isShuffling, setIsShuffling] = useState(false); //Am i shuffling//side effect that happen outside normal render
- 
+  
+  //so now we know to use a useEffect to happen once to load a new deck
+  //then the new deck loads and rerenders in setDeck so now deck is not an empty array now
   useEffect( 
     function loadDeckFromAPI() {  
       async function fetchData() {
@@ -140,13 +142,40 @@ function Deck() { //Ask yourself here, “What data fully describes this screen?
       fetchData(); //run the function
     }, []); //This will render only once
 
-  async function draw() {
+  //so now that deck is loaded we think what happens when you click the draw button(even though there is no button yet, ask what needs to happen when it is clicked anyways)
+  async function draw() { //start an async funtion because it would wait for the deck to load 
     try {
+      const drawRes = await axios.get(`${API_BaseURL}/${deck.deck_id}/draw/`); //drawRes is the API url for cards drawn
 
-    } catch (err) {
+      if (drawRes.data.remaining === 0) throw new Error("Deck Empty!"); //If there is no reamining cards, throw an error alert
+
+      const card = drawRes.data.cards[0]; //card will have all its values for the firs card
+
+      setDrawn(d => [ // setDrawn is noe going to change the drawn array to the values of the card drawn
+        ...d, {
+          id: card.code,
+          name: card.suit + " " + card.value,
+          image: card.image,
+        },
+      ])
+    } catch (err) { //if an error occurs, return that error as alert
       alert(err);
     }
   }
+
+  //So now we think what should happen when you click shuffle button
+  async function startShuffling() { //Essentiality we want to reset the whole card drawing with the same deck but shuffled again
+    setIsShuffling(true); //first we set isShuffling to true
+    try { 
+      await axios.get(`${API_BaseURL}/${deck.deck_id}/shuffle`);
+      setDrawn([]);
+    } catch {
+
+    } finally {
+
+    }
+  }
+
 
 
   return (
