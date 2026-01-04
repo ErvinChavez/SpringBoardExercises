@@ -8,9 +8,11 @@
 //         return data.deck_id;
 //   })
 // }
-
 // export default Deck;
 
+
+//......................................................................................
+// Compared to Solution
 
 
 // import React, { useEffect, useState } from "react";
@@ -115,10 +117,12 @@
 
 // export default Deck;
 
+//..................................................................................
+
+//FINAL 
 
 
-//Repeat AGAIN
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Card from "./Card";
 import axios from "axios";
 
@@ -151,7 +155,7 @@ function Deck() { //Ask yourself here, “What data fully describes this screen?
 
       const card = drawRes.data.cards[0]; //card will have all its values for the firs card
 
-      setDrawn(d => [ // setDrawn is noe going to change the drawn array to the values of the card drawn
+      setDrawn(d => [ // setDrawn is now going to change the drawn array to the values of the card drawn
         ...d, {
           id: card.code,
           name: card.suit + " " + card.value,
@@ -165,22 +169,67 @@ function Deck() { //Ask yourself here, “What data fully describes this screen?
 
   //So now we think what should happen when you click shuffle button
   async function startShuffling() { //Essentiality we want to reset the whole card drawing with the same deck but shuffled again
-    setIsShuffling(true); //first we set isShuffling to true
+    setIsShuffling(true); //first we set isShuffling to true, this disables the draw and shuffle button
     try { 
-      await axios.get(`${API_BaseURL}/${deck.deck_id}/shuffle`);
-      setDrawn([]);
-    } catch {
-
+      await axios.get(`${API_BaseURL}/${deck.deck_id}/shuffle`); //the API to reshuffle the same deck is called and also resets to 52 now
+      setDrawn([]); //setDrawn is set back to an empty array to clear the UI of the drawn card previously
+    } catch(err) { //if any error, return it as an alert
+      alert(err);
     } finally {
-
+      setIsShuffling(false); //At the end set isShuffling back to false to show the draw and shuffle button again
     }
   }
 
+  //So now we think what should happen when the buttons are visible and clicked
+  function renderDrawBtnIfOk() {
+    if (!deck) return null; //if there is no deck return null(no button created)
 
+    return (
+      <button
+        className="Deck-gimme"
+        onClick={draw} //on click run draw function
+        disabled = {isShuffling} //disable button if isShuffling is true, so not clickable
+      >
+        DRAW
+      </button>
+    );
+  }
+
+  function renderShuffleBtnIfOk() {
+    if (!deck) return null; // if there is no deck return null(no button created)
+    return (
+      <button
+        className="Deck-gimme"
+        onClick={startShuffling} //on click run the startShffling function
+        disabled={isShuffling} //disable button if isShuffling is true, so not clickable
+      >
+        SHUFFLE DECK
+      </button>
+    )
+  }
 
   return (
-    <div>
+    <main className="Deck">
 
-    </div>
+      {renderDrawBtnIfOk} 
+      {renderShuffleBtnIfOk}
+
+      <div className="Deck-cardarea"> 
+        { //So now we ask, what do we want to see on the UI when a card is drawn, 
+          //So we decided we want to see the name and image, and id
+          //ID is used to track cards drawn and help React manage the list efficiently
+
+          drawn.map(c =>(
+            <Card
+              key={c.id}
+              name={c.name}
+              image={c.image}
+            />
+          )
+          )
+        }
+      </div>
+
+    </main>
   );
 }

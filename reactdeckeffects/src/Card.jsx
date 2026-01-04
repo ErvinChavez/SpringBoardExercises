@@ -14,11 +14,9 @@
 
 // export default Card;
 
+//................................................................................
 
 //COMPARING TO THE SOLUTION
-
-import React, { useState } from "react";
-import "./Card.css";
 
 /** Single card: just renders the card as received from deck. */
 
@@ -43,17 +41,34 @@ import "./Card.css";
 
 // export default Card;
 
+//.................................................................................
 
-
+//FINAL
 
 //Rewriting for Retention
+import React, { useState } from "react";
+import "./Card.css";
 
-function Card() {
-  
+
+//Here my thought should be, what do i want to be visible in the UI, the card image and name as the alt
+//I also want the cards to be rotated in random angles
+function Card(name, image) {
+  const [{angle, xPos, yPos}] = useState({
+    angle: Math.random() * 90 - 45,
+    xPos: Math.random() * 40 - 20,
+    yPos: Math.random() * 40 - 20,
+  });
+
+  const transform = `translate(${xPos}px, ${yPos}px) rotate(${angle}deg)`;
 
   return (
-    <div>
-
-    </div>
+    <img
+      className="Card"
+      alt={name} //the name when drawn is map over in Deck component
+      src={image} //the image when drawn is map over in the Deck component
+      style={{transform}} //this will hold a CSS syntax that will translate and rotate the card
+    />
   )
 }
+
+export default Card;
