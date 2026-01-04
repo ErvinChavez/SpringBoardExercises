@@ -125,11 +125,12 @@
 import React, {useEffect, useState} from "react";
 import Card from "./Card";
 import axios from "axios";
+import "./Deck.css"
 
 const API_BaseURL = "https://deckofcardsapi.com/api/deck" //this is the simplest form of the api before andding endpoints regarding what we want to retrieve for the components
 
 
-function Deck() { //Ask yourself here, “What data fully describes this screen?”
+export function Deck() { //Ask yourself here, “What data fully describes this screen?”
   //These are the 3 UI we want presented
   const [deck, setDeck] = useState(null);//Do i have a deck yet? helped by the useEffect to render the deck in
   const [drawn, setDrawn] = useState([]);//What cards have been drawn, should have the id, name , and image
@@ -211,8 +212,8 @@ function Deck() { //Ask yourself here, “What data fully describes this screen?
   return (
     <main className="Deck">
 
-      {renderDrawBtnIfOk} 
-      {renderShuffleBtnIfOk}
+      {renderDrawBtnIfOk()} 
+      {renderShuffleBtnIfOk()}
 
       <div className="Deck-cardarea"> 
         { //So now we ask, what do we want to see on the UI when a card is drawn, 
@@ -233,3 +234,5 @@ function Deck() { //Ask yourself here, “What data fully describes this screen?
     </main>
   );
 }
+
+export default Deck;

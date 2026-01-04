@@ -52,7 +52,7 @@ import "./Card.css";
 
 //Here my thought should be, what do i want to be visible in the UI, the card image and name as the alt
 //I also want the cards to be rotated in random angles
-function Card(name, image) {
+function Card({name, image}) {
   const [{angle, xPos, yPos}] = useState({
     angle: Math.random() * 90 - 45,
     xPos: Math.random() * 40 - 20,
