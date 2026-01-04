@@ -124,16 +124,19 @@ import axios from "axios";
 
 const API_BaseURL = "https://deckofcardsapi.com/api/deck" //this is the simplest form of the api before andding endpoints regarding what we want to retrieve for the components
 
-function Deck() {
-  const [deck, setDeck] = useState(null);//the deck being loaded, helped by the useEffect to render the deck in
-  const [drawn, setDrawn] = useState([]);//the card being drawn, should have the id, name , and image
-  const [isShuffling, setIsShuffling] = useState(false); //is deck being shuffled, boolean
+function Deck() { //Ask yourself here, “What data fully describes this screen?”
+  const [deck, setDeck] = useState(null);//Do i have a deck yet? helped by the useEffect to render the deck in
+  const [drawn, setDrawn] = useState([]);//What cards have been drawn, should have the id, name , and image
+  const [isShuffling, setIsShuffling] = useState(false); //Am i shuffling//side effect that happen outside normal render
  
-  useEffect( //side effect that happen outside normal render
+  useEffect( 
     function loadDeckFromAPI() {  
-
-    }
-  )
+      async function fetchData() {
+        const d = await axios.get(`${API_BaseURL}/new/shuffle/`); //endpoints added to the AOI link, to retrieve a shuffled deck
+        setDeck(d.data)//drawn is render to equal array from d. data
+      }
+      fetchData();
+    }, []); //This will render only once
 
 
   return (
