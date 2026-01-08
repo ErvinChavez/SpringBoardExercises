@@ -52,3 +52,17 @@
  *  The Star will
  *    
  */
+
+import React from "react";
+import Space from "./Space";
+
+function App() {
+
+  return (
+    <>
+
+    </>
+  )
+}
+
+export default App;
