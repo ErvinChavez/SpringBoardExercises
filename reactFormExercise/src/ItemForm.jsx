@@ -1,10 +1,18 @@
+/**
+ 2. Implement an `ItemForm` component, which has a form for users to input new items into the inventory. This component should update the inventory state in `SpacecraftBuilder` upon form submission using the callback function.
+    - Make all fields required.
+    - Validate each field on form submission. If a field is missing, highlight the field.
+    - Clear the form on successful form submission.
+*/
+
+
 import React from "react";
 
-const ItemForm = ({onItemSubmit}) => { 
+const ItemForm = ({onItemSubmit}) => { //the prop is the addItem function from the SpacecraftBulder.jsx
 
     const   INITIAL_DATA = {
         name: "",
-        quntity: "",
+        quantity: "",
         purpose:"",
         agreeToTerms: false
     };
@@ -42,7 +50,7 @@ const ItemForm = ({onItemSubmit}) => {
 
         setErrors(newFormErrors); //setErrors function will cause a re-render if newFormErrors has a change causing a change to errors
 
-        return Object.keys(newFormErrors).length === 0; //this one I need to look up, not sure how to read this one
+        return Object.keys(newFormErrors).length === 0; //returns the number of keys in newFormErrors if any, if the length is 0 then zero errors occur meaning it will return as true
     }
 
     function handleSubmit (event) { //funtion on what happens when submitted
@@ -51,14 +59,14 @@ const ItemForm = ({onItemSubmit}) => {
 
         const isFormValid = validateForm(); //is the form valid
 
-        if (isFormValid) { //if form is valid 
+        if (isFormValid) { //if form is valid proceed
 
             const newItem = { //the newItem will be set all the current data, but with an updated id of the current date and random number
                 ...data,
                 id: `${Date.now()}-${Math.floor(Math.random() * 1000)}` //I think this returns the date at that moment with a random number
             };
 
-            onItemSubmit(newItem); //on Submit the, the form will be all the previous data, with the change in newItem, which is id.
+            onItemSubmit(newItem); //on Submit the, the form will be submitted nand reset
             setData(INITIAL_DATA); //will reset the setData 
             setErrors({}); //will reset the setErrors
         }
@@ -72,7 +80,7 @@ const ItemForm = ({onItemSubmit}) => {
             <h2>Add an Item to the Inventory</h2>
             
             <div
-                className={`${styles.element} ${errors["name"] ? styles.error : "" }`} //Not sure about this one either;class name style is set to styles.element but if there is an error with the name input, set the styles to the styles.error, if not return the empty "".
+                className={`${styles.element} ${errors["name"] ? styles.error : "" }`} //class name style is set to styles.element but if there is an error with the name input, add the styles of styles.error along with it, if not add nothing
             >
                 <input
                     type="text"
@@ -84,7 +92,7 @@ const ItemForm = ({onItemSubmit}) => {
             </div>
 
             <div
-                className={`${styles.element} ${errors["quantity"] ? styles.error : ""}`} //class name style is set to styles.element but if there is an error with the quantity input, set the styles to the styles.error,  if not return empty "".
+                className={`${styles.element} ${errors["quantity"] ? styles.error : ""}`} //class name style is set to styles.element but if there is an error with the quantity input, add the styles of styles.error,  if not add nothing "".
             >
                 <input
                     type="number"
@@ -96,7 +104,7 @@ const ItemForm = ({onItemSubmit}) => {
             </div>
 
             <div
-                className={`${styles.element} ${errors["purpose"] ? styles.error : ""}`}
+                className={`${styles.element} ${errors["purpose"] ? styles.error : ""}`} //class name style is set to styles.element but if there is an error with the purpose textarea, add the styles of styles.error,  if not add nothing "".
             >
                 <textarea
                     name="purpose"
@@ -106,6 +114,26 @@ const ItemForm = ({onItemSubmit}) => {
                 />
             </div>
 
+            <div
+                className={`${styles.argreeToTerms} ${errors["agreeToTerms"] ? styles.error : ""}`} //class name style is set to styles.element but if there is an error with the agreeToTerms input, add the styles of styles.error,  if not add nothing "".
+            >  
+                <input 
+                    type="checkbox" 
+                    name="agreeToTerms"
+                    id="agreeToTerms"
+                    checked={data.agreeToTerms}
+                    onChange={handleInputChange} //if a change on this render the handleInputChange
+                />
+            </div>
+
+            <button
+                type="submit"
+                className={styles.button}
+            >
+                Add
+            </button>
         </form>
-    )
+    );
 }
+
+export default ItemForm;
