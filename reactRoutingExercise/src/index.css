@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400; 700&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -10,43 +12,92 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
+  --primary: #bc4123;
+  --secondary: #2b3452;
 }
 
-a {
+/* a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
 a:hover {
   color: #535bf2;
-}
+} */
 
 body {
   margin: 0;
-  display: flex;
+  padding: 20px;
+  font-family: "Poppins";
+  background: var(--secondary);
+  /* display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
 
-h1 {
+* {
+  color: #fff;
+  margin: 0;
+}
+
+p {
+  margin: 20px 0;
+}
+
+/* h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
+} */
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  border: 0;
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+  background: var(--primary);
+  cursor: pointer;
+  
+  /* font-size: 1em;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s; */
 }
-button:hover {
+
+
+/* navbar */
+header nav {
+  display: flex;
+  gap: 16px;
+  justify-content: space-evenly;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+header nav a {
+  text-decoration: underline;
+  padding: 6px;
+  border-radius: 4px;
+  
+}
+
+header nav a.active {
+  background: var(--primary);
+}
+
+/* page content */
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+
+
+/* button:hover {
   border-color: #646cff;
 }
 button:focus,
@@ -65,4 +116,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
