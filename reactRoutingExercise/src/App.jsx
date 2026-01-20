@@ -23,7 +23,7 @@ const router = createBrowserRouter(
       <Route path='venus' element={<Venus/>}/>
       <Route path='orionnebula' element={<OrionNebula/>}/>
       
-      <Route path='*' element={<NotFound />} />
+      <Route path='*' element={<NotFound/>} />
     </Route>
 
     
