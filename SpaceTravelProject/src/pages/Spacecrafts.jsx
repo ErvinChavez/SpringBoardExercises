@@ -1,6 +1,7 @@
 export default function Spacecrafts() {
-    return (
-        <div>
+    return ( //what should the user see on this page (What is needed:)
+        <div className="spaceCrafts"> 
+            <button>Build Spacecraft</button>
 
         </div>
     )
@@ -8,14 +9,15 @@ export default function Spacecrafts() {
 
 
 /**
- * 1. Loads with a Build a Spacecraft Button
+ * What is needed:
  * 
- * 2. 
- * Loading(calling the mockedApi) 
- * At load, its a conatiner(div) with..
+ * 1."Build a Spacecraft" Button, that goes into a form page to creat a new spacecraft
+ * 
+ * 2.Loading screen(while calling the Api) 
+ * 3. At load, its a conatiner(div) and inside of it.. (This is probably it's own component)
  * Name: Prispax(Spacecraft name)
  * Capacity:(The amount of capacity)
- * 2 buttons:
- * -one is an image button
- * -other is the "destroy" button
+ * and 2 buttons:
+ * -one is an image button (goes to page of the description of the spacecraft)
+ * -other is the "destroy" button (this deletes the current container the button was in)
  */

@@ -6,7 +6,6 @@ export default function RootLayout() {
         <div className="root-layout">
             <header>
                 <nav>
-                    <h1>Space Travel</h1>
                     <NavLink to="/">Home</NavLink>
                 </nav>
             </header>
