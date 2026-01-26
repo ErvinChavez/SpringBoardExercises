@@ -1,0 +1,14 @@
+* {
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    width: auto;
+}
+.home {
+    margin: auto;
+    
+}
+.home p {
+    width:800px;
+    align-items: center;
+} 
