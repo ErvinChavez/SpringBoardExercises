@@ -1,4 +1,4 @@
-import SpaceTravelMockApi from "./SpaceTravelMockApi.js";
+import SpaceTravelMockApi from "./SpaceTravelMockApi.jsx";
 
 class SpaceTravelApi
 {
