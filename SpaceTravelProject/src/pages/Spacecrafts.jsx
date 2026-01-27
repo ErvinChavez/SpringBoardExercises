@@ -1,3 +1,5 @@
+import SpacecraftCard from "../components/SpacecraftCard";
+
 export default function Spacecrafts() {
     return ( //what should the user see on this page (What is needed:)
         <div className="spaceCrafts"> 
@@ -15,12 +17,13 @@ export default function Spacecrafts() {
 
             {/* The list of sections that hold the info of one spacecraft with it's two buttons*/}
             <section className="spaceCraftsLists">
-                {/* <SpaceCraftCard/> //this will replace the following mock data from the card component */}
-                <h3>Name: Prispax</h3>
-                <p><strong>Capacity:</strong> 10000</p>
-
-                <button>🚀</button>
-                <button>Destroy</button>
+                {/* Now that we figured out the porp in spaceCraftCard, we replace it here using just simple data, now we need to figure out how to get the real data */}
+                <SpaceCraftCard
+                    name = "Prispax"
+                    capacity = {10000}
+                    onView = {() => alert("View spacecraft")}
+                    onDestroy = {() => alert("Destroy spacecraft")}
+                />
             </section>
         </div>
     )
