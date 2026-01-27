@@ -1,12 +1,18 @@
-export default function SpacecraftCard() {
-    return (
+export default function SpacecraftCard({name, capacity, onView, onDestroy}) {
+    return ( 
+        /*What values in card will vary from spacecraft to spacecraft (these will be the props)?
+            -Name (from the data)
+            -Capacity (from the data)
+            -view action (from the parent state when rocket button click)
+            -destroy action (from the parent state when destroy click)
+        */
         <div className="spaceCraftCard">
-            <h3>Name: Prispax</h3>
-            <p><strong>Capacity:</strong> 10000</p>
+            <h3>Name: {name}</h3>
+            <p><strong>Capacity:</strong> {capacity}</p>
 
             <div className="spaceCraftActions">
-                <button>🚀</button>
-                <button>Destroy</button>
+                <button onClick={onView}>🚀</button>
+                <button onClick={onDestroy}>Destroy</button>
             </div>
         </div>
     );
