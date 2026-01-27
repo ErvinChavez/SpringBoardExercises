@@ -17,6 +17,13 @@ export default function Spacecrafts() {
         {id: 1, name: "Prispax", capacity: 10000},
         {id: 2, name: "Pelican", capacity: 200000},
     ])
+
+    /* Now we handle the destroy function, it happens here because this is where the useState is at: We basically want to run through the current(I guess previous) array of objects and filter through making a new array but leave out the one with the card that had the id when clicked on */
+    function destroySpacecraft(id) {
+        setSpaceCrafts((prevSpacecrafts) => 
+            prevSpacecrafts.filter((craft) => 
+                craft.id !== id)); 
+    }
     
     return ( //what should the user see on this page (What is needed:)
         <div className="spaceCrafts"> 
@@ -43,7 +50,7 @@ export default function Spacecrafts() {
                     name = {craft.name}
                     capacity = {craft.capacity}
                     onView = {() => alert(`View ${craft.name}`)}
-                    onDestroy = {() => alert("Destroy spacecraft")}
+                    onDestroy = {() => destroySpacecraft(craft.id)}
                 />  
                 ))}
                 
@@ -51,18 +58,3 @@ export default function Spacecrafts() {
         </div>
     )
 }
-
-
-/**
- * What is needed:
- * 
- * 1."Build a Spacecraft" Button, that goes into a form page to creat a new spacecraft
- * 
- * 2.Loading screen(while calling the Api) 
- * 3. At load, its a conatiner(div) and inside of it.. (This is probably it's own component)
- * Name: Prispax(Spacecraft name)
- * Capacity:(The amount of capacity)
- * and 2 buttons:
- * -one is an image button (goes to page of the description of the spacecraft)
- * -other is the "destroy" button (this deletes the current container the button was in)
- */
