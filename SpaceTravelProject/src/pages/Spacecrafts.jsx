@@ -1,6 +1,22 @@
+import { useState } from "react";
 import SpacecraftCard from "../components/SpacecraftCard";
 
 export default function Spacecrafts() {
+
+    /*So we know that the API will return the data format as a list of objects with values(this was given from the instructions):
+    {
+        id: <string>,
+        name: <string>,
+        capacity: <int>,
+        description: <string>,
+        pictureUrl: [<string>],
+        currentLocation: <int>
+    }  So we make a useState that has arrays of objects to get the info we want*/
+
+    const [spaceCrafts, setSpaceCrafts] = useState([
+        {id: 1, name: "Prispax", capacity: 10000},
+    ])
+    
     return ( //what should the user see on this page (What is needed:)
         <div className="spaceCrafts"> 
             {/* button to the form section to build a new spacecraft */}
@@ -17,13 +33,19 @@ export default function Spacecrafts() {
 
             {/* The list of sections that hold the info of one spacecraft with it's two buttons*/}
             <section className="spaceCraftsLists">
-                {/* Now that we figured out the porp in spaceCraftCard, we replace it here using just simple data, now we need to figure out how to get the real data */}
-                <SpaceCraftCard
-                    name = "Prispax"
-                    capacity = {10000}
-                    onView = {() => alert("View spacecraft")}
+
+                {/* Now that we figured out the props in spaceCraftCard, we replace it here using just simple data, now we need to figure out how to get the real data */}
+                {/* Now that we have a useState for it, lets go through the array of objects(spaceCrafts) from the useState and make a card for each ship called */}
+                {spaceCrafts.map((craft) => (
+                  <SpaceCraftCard
+                    key = {craft.id}
+                    name = {craft.name}
+                    capacity = {craft.capacity}
+                    onView = {() => alert(`View ${craft.name}`)}
                     onDestroy = {() => alert("Destroy spacecraft")}
-                />
+                />  
+                ))}
+                
             </section>
         </div>
     )
