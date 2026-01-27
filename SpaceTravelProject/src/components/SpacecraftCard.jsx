@@ -1,4 +1,4 @@
-export default function SpacecraftCard({name, capacity, onView, onDestroy}) {
+export default function SpaceCraftCard({name, capacity, onView, onDestroy}) {
     return ( 
         /*What values in card will vary from spacecraft to spacecraft (these will be the props)?
             -Name (from the data)

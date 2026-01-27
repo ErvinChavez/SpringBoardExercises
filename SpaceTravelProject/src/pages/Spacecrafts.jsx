@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SpacecraftCard from "../components/SpacecraftCard";
+import SpaceCraftCard from "../components/SpacecraftCard";
 
 export default function Spacecrafts() {
 
@@ -15,6 +15,7 @@ export default function Spacecrafts() {
 
     const [spaceCrafts, setSpaceCrafts] = useState([
         {id: 1, name: "Prispax", capacity: 10000},
+        {id: 2, name: "Pelican", capacity: 200000},
     ])
     
     return ( //what should the user see on this page (What is needed:)
