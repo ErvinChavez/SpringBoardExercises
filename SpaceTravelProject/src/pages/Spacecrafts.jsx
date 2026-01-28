@@ -49,6 +49,7 @@ export default function Spacecrafts() {
                     key = {craft.id}
                     name = {craft.name}
                     capacity = {craft.capacity}
+                    pictureUrl={craft.pictureUrl}
                     onView = {() => alert(`View ${craft.name}`)}
                     onDestroy = {() => destroySpacecraft(craft.id)}
                 />  

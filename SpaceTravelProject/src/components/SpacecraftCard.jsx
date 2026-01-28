@@ -1,4 +1,4 @@
-export default function SpaceCraftCard({name, capacity, onView, onDestroy}) {
+export default function SpaceCraftCard({name, capacity, pictureUrl, onView, onDestroy}) {
     return ( 
         /*What values in card will vary from spacecraft to spacecraft (these will be the props)?
             -Name (from the data)
@@ -11,7 +11,7 @@ export default function SpaceCraftCard({name, capacity, onView, onDestroy}) {
             <p><strong>Capacity:</strong> {capacity}</p>
 
             <div className="spaceCraftActions">
-                <button onClick={onView}>🚀</button>
+                <button onClick={onView}><img src={pictureUrl} alt={`View ${name}`}/></button>
                 <button onClick={onDestroy}>Destroy</button>
             </div>
         </div>
