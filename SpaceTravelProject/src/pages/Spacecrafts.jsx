@@ -18,6 +18,12 @@ export default function Spacecrafts() {
         {id: 2, name: "Pelican", capacity: 200000},
     ])
 
+    /* After finishing the spaceCraftCard lets make the loading screen, and catch errors*/
+    const [isLoading, setIsLoading] = useState(true);//is the page loading right now?
+    const [error, setError] = useState(null);//are there any current errors?
+
+
+
     /* Now we handle the destroy function, it happens here because this is where the useState is at: We basically want to run through the current(I guess previous) array of objects and filter through making a new array but leave out the one with the card that had the id when clicked on */
     function destroySpacecraft(id) {
         setSpaceCrafts((prevSpacecrafts) => 
@@ -31,15 +37,21 @@ export default function Spacecrafts() {
             <button>Build Spacecraft</button> 
 
             {/* Loading state of the page */}
-            <p>Loading Spacecrafts...</p>
+            {/* What user sees when the loading page is happening */}
+            {isLoading && <p>Loading Spacecrafts...</p>}
 
-            {/*Catch errors if failed to load */}
-            <p>Failed to load Spacecrafts</p>
+            {/* What user sees when an error is caught */}
+            {error && <p className="error">{error}</p>}
 
-            {/*When all spacecrafts are destroyed, and left with empty state */}
-            <p>No Spacecrafts available</p>
+            {/* What user sees when there is no loading, no errors, and no more spacecrafts */}
+            {!isLoading && !error && spaceCrafts.length === 0 && (
+                <p>No spacecraftes available</p>
+            )}
 
-            {/* The list of sections that hold the info of one spacecraft with it's two buttons*/}
+            {/* Now what happens when we do have spaceCrafts and no errors where found and no longer loading */}
+            {!isLoading && !error && spaceCrafts.length > 0 && (
+
+            /* The list of sections that hold the info of one spacecraft with it's two buttons*/
             <section className="spaceCraftsLists">
 
                 {/* Now that we figured out the props in spaceCraftCard, we replace it here using just simple data, now we need to figure out how to get the real data */}
@@ -53,9 +65,9 @@ export default function Spacecrafts() {
                     onView = {() => alert(`View ${craft.name}`)}
                     onDestroy = {() => destroySpacecraft(craft.id)}
                 />  
-                ))}
-                
+                ))}   
             </section>
+            )}
         </div>
-    )
+    );
 }
