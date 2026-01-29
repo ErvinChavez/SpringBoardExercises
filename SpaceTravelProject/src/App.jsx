@@ -6,8 +6,10 @@ import HomePage from "./pages/HomePage";
 import Spacecrafts from "./pages/Spacecrafts";
 import Planets from "./pages/Planets";
 
+
 //layouts
 import RootLayout from "./layouts/RootLayout";
+import SpaceCraftCard from "./components/SpacecraftCard";
 
 
 const router = createBrowserRouter(
@@ -15,6 +17,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout/>}>
       <Route index element={<HomePage />}/>
       <Route path="spacecrafts" element={<Spacecrafts/>} />
+      <Route path="spacecraftCard" element={<SpaceCraftCard/>}/>
       <Route path="planets" element={<Planets/>}/>
     </Route>
   )
