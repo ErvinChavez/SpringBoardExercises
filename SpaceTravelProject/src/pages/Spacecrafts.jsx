@@ -101,10 +101,11 @@ export default function Spacecrafts() {
                 {spaceCrafts.map((craft) => (
                   <SpaceCraftCard
                     key = {craft.id}
+                    id={craft.id}
                     name = {craft.name}
                     capacity = {craft.capacity}
                     pictureUrl={craft.pictureUrl}
-                    onView = {() => alert(`View ${craft.name}`)}
+                    onView = {() => navigate(`/spacecraft/${craft.id}`)} /** */
                     onDestroy = {() => destroySpacecraft(craft.id)}
                 />  
                 ))}   

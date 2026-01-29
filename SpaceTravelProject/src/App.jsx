@@ -1,15 +1,15 @@
 // import styles from "./App.css";
-import {createBrowserRouter,  createRoutesFromElements, Route, Link, RouterProvider} from "react-router-dom"
+import {createBrowserRouter,  createRoutesFromElements, Route, RouterProvider} from "react-router-dom"
 
 //pages
 import HomePage from "./pages/HomePage";
 import Spacecrafts from "./pages/Spacecrafts";
 import Planets from "./pages/Planets";
+import Spacecraft from "./pages/Spacecraft";
 
 
 //layouts
 import RootLayout from "./layouts/RootLayout";
-import SpaceCraftCard from "./components/SpacecraftCard";
 
 
 const router = createBrowserRouter(
@@ -17,7 +17,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout/>}>
       <Route index element={<HomePage />}/>
       <Route path="spacecrafts" element={<Spacecrafts/>} />
-      <Route path="spacecraftCard" element={<SpaceCraftCard/>}/>
+      <Route path="spacecraft/:id" element={<Spacecraft/>}/>
       <Route path="planets" element={<Planets/>}/>
     </Route>
   )
