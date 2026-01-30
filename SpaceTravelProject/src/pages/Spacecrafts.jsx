@@ -104,6 +104,7 @@ export default function Spacecrafts() {
                     id={craft.id}
                     name = {craft.name}
                     capacity = {craft.capacity}
+                    description= {craft.description}
                     pictureUrl={craft.pictureUrl}
                     onView = {() => navigate(`/spacecraft/${craft.id}`)} /** */
                     onDestroy = {() => destroySpacecraft(craft.id)}
