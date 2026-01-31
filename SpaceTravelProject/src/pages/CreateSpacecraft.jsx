@@ -10,23 +10,25 @@ export default function CreateSpacecraft() {
             <form>
                 <label>
                     Name
-                    <input type="text"/>
+                    <input type="text" required/>
                 </label>
 
                 <label>
                     Capacity
-                    <input type="number"/>
+                    <input type="number" required/>
                 </label>
 
                 <label>
                     Description
-                    <textarea />
+                    <textarea required/>
                 </label>
 
                 <label>
                     Picture URL {/*Make this optional */}
                     <input type="text"/>
                 </label>
+
+                <button type="submit">Build</button>
             </form>
         
         </div>
