@@ -41,6 +41,7 @@ export default function Spacecraft() {
 
     return (
         <div className="spacecraft">
+            {/* This is how the spacecraft page will return */}
             <button onClick={() => navigate(-1)}>Back</button>
             <h1>{spacecraft.name}</h1>
             <p><strong>Capacity:</strong> {spacecraft.capacity}</p>
