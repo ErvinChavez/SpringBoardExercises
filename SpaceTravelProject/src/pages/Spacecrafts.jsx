@@ -76,7 +76,7 @@ export default function Spacecrafts() {
     return ( //what should the user see on this page (What is needed:)
         <div className="spaceCrafts"> 
             {/* button to the form section to build a new spacecraft */}
-            <button>Build Spacecraft</button> 
+            <button onClick={() => navigate("/spacecrafts/new")}>Build Spacecraft</button> 
 
             {/* Loading state of the page */}
             {/* What user sees when the loading page is happening */}
