@@ -11,5 +11,5 @@ export default function RootLayout() {
             </nav>
             <Outlet/>
         </div>
-    )
+    );
 }
