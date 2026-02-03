@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
-
 import SpaceTravelApi from "../services/SpaceTravelApi";
 
 export default function CreateSpacecraft() {
@@ -49,7 +48,6 @@ export default function CreateSpacecraft() {
     }
 
     navigate("/spacecrafts");
-    setIsLoading(false);
 
    }
    
@@ -69,7 +67,6 @@ export default function CreateSpacecraft() {
                         type="text" 
                         value={name} 
                         onChange={(e) => setName(e.target.value)} 
-                        required
                     />
                 </label>
 
@@ -78,7 +75,6 @@ export default function CreateSpacecraft() {
                     <input type="number" 
                         value={capacity} 
                         onChange={(e) => setCapacity(e.target.value)} 
-                        required
                     />
                 </label>
 
@@ -87,22 +83,19 @@ export default function CreateSpacecraft() {
                     <textarea 
                         value={description} 
                         onChange={(e) => setDescription(e.target.value)}
-                        required
                     />
                 </label>
 
                 <label>
                     Picture URL {/*Make this optional */}
                     <input 
-                        type="text"
                         value={pictureUrl}
                         onChange={(e) => setPictureUrl(e.target.value)}
                     />
                 </label>
 
-                <button type="submit" disabled={isLoading}>Build</button>
+                <button disabled={isLoading}>Build</button>
             </form>
-
         </div>
-    )
+    );
 }

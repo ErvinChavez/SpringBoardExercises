@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SpaceCraftCard from "../components/SpacecraftCard";
 import SpaceTravelApi from "../services/SpaceTravelApi";
 
 export default function Spacecrafts() {
-
+    const navigate = useNavigate();
     /*So we know that the API will return the data format as a list of objects with values(this was given from the instructions):
     {
         id: <string>,
@@ -20,6 +21,8 @@ export default function Spacecrafts() {
     const [isLoading, setIsLoading] = useState(true);//is the page loading right now?
     const [error, setError] = useState(null);//are there any current errors?
 
+    
+    
     
     /*So after placing the logic only, of isLoading, error, empty, or with data; 
     Let's actually fetch the API to replace the mock logic we used just to help setup.
@@ -76,7 +79,7 @@ export default function Spacecrafts() {
     return ( //what should the user see on this page (What is needed:)
         <div className="spaceCrafts"> 
             {/* button to the form section to build a new spacecraft */}
-            <button onClick={() => navigate("/spacecrafts/new")}>Build Spacecraft</button> 
+            <button onClick={() => navigate("/spacecraft/new")}>Build Spacecraft</button> 
 
             {/* Loading state of the page */}
             {/* What user sees when the loading page is happening */}
@@ -106,7 +109,7 @@ export default function Spacecrafts() {
                     capacity = {craft.capacity}
                     description= {craft.description}
                     pictureUrl={craft.pictureUrl}
-                    onView = {() => navigate(`/spacecraft/${craft.id}`)} /** */
+                    /** onView = {() => navigate(`/spacecraft/${craft.id}`)}  */
                     onDestroy = {() => destroySpacecraft(craft.id)}
                 />  
                 ))}   

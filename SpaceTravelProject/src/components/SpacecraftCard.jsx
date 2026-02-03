@@ -17,7 +17,7 @@ export default function SpaceCraftCard({id, name, capacity, pictureUrl, onDestro
 
             <div className="spaceCraftActions">
                 {/* The image will go that spacecraft with the id for that's ship info. */}
-                <button onClick={() => navigate(`/spacecrafts/${id}`)}><img src={pictureUrl} alt={`View ${name}`}/></button>
+                <button onClick={() => navigate(`/spacecraft/${id}`)}>{pictureUrl ? ( <img src={pictureUrl} alt={`View ${name}`}/> ) : ("View")} </button>
                 <button onClick={onDestroy}>Destroy</button>
             </div>
         </div>

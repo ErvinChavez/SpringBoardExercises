@@ -38,20 +38,20 @@ export default function Spacecraft() {
         loadSpacecraft();
     }, [id]);
 
+    if (isLoading) return <p>Loading spacecraft...</p>;
+    if (error) return <p className="error">{error}</p>;
 
     return (
         <div className="spacecraft">
             {/* This is how the spacecraft page will return */}
+            
             <button onClick={() => navigate(-1)}>Back</button>
             <h1>{spacecraft.name}</h1>
             <p><strong>Capacity:</strong> {spacecraft.capacity}</p>
             <p><strong>Description: {spacecraft.description}</strong></p>
 
             {spacecraft.pictureURl && (
-                <img 
-                    src= {spacecraft.pictureURl} 
-                    alt= {spacecraft.name}
-                />
+                <img src= {spacecraft.pictureUrl} alt= {spacecraft.name}/>
             )}
         </div>
     );

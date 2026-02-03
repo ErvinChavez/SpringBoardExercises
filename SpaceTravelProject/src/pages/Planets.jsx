@@ -55,9 +55,9 @@ export default function Planets() {
 
             /*Turn the loading screen off */
             setIsLoading(false);
-
-            loadData();
         }
+        
+        loadData();
     }, [])
 
 /*Ask myself: What spacecrafts are in the current planet */
@@ -107,21 +107,18 @@ if (error) return <p className="error">{error}</p>;
                     {getSpacecraftsOnPlanet(planet.id).map((craft) => (
                         <div key={craft.id} className="planet-spacecraft">
                             <button 
-                              onClick= {
-                                () => sendSpacecraft(craft.id, planet.id)
-                              }
+                              onClick= {() => sendSpacecraft(craft.id, planet.id)}
                             >
-                                <img
-                                    src={craft.pictureUrl}
-                                    alt={craft.name}
-                                />   
+                                {craft.pictureUrl ? (
+                                     <img src={craft.pictureUrl} alt={craft.name}/>   
+                                ) : ("Send" 
+                                )}
                             </button>
                             <span>{craft.name}</span>
                         </div>
                     ))}
                 </div>
             ))}
-
         </section>
 
 
@@ -142,5 +139,5 @@ if (error) return <p className="error">{error}</p>;
         //         </div>
         //     </section>
         // </div>
-    )
+    );
 }
