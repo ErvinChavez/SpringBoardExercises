@@ -40,5 +40,5 @@ export default function HomePage() {
                 </div>
             </footer>
         </span>
-    )
+    );
 };
