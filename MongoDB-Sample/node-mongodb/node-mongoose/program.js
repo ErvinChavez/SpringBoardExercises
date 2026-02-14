@@ -17,6 +17,10 @@ const runDatabaseQueries = async () => {
 
   //query all of the George Lucas movies//
 
+
+
+  //testin!!!!!!!!!!!!!!!!!!!!!!!!!!!!!////
+
   const lucasMovies = await movies
     .find({ directors: "George Lucas" })
     .toArray();
