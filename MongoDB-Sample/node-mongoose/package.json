@@ -1,5 +1,5 @@
 {
-  "name": "node-mongodb",
+  "name": "mongodb",
   "version": "1.0.0",
   "description": "\"Barebones Node.js with MongoDB setup\"",
   "main": "index.js",
@@ -7,6 +7,11 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.5.0",
-    "mongodb": "^6.16.0"
-  }
+    "mongodb": "7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "commonjs"
 }
