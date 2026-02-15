@@ -20,14 +20,11 @@ const connect = require("./db");
 
 // runCreate();
 
-
 //READ
 
 const runDatabaseQueries = async () => {
-  
   const db = await connect();
-  const movies = db.collection('movies');
-
+  const movies = db.collection("movies");
 
   // // Run this query, should get top 5 best rated movies on IMDB
   // const topMovies = await movies.find({ "imdb.rating": { $gt: 8.0 } })
@@ -47,20 +44,18 @@ const runDatabaseQueries = async () => {
   // console.log("Christopher Nolan Movies", nolanMovies)
   // process.exit(0);
 
-  // //2.Find movies that include the genre "Action" and sort (descending) them by year.
+  //   // //2.Find movies that include the genre "Action" and sort (descending) them by year.
 
-  // const actionMovies = await movies.find({genres: "Action"})
-  // .sort({year: 1})
-  // .project({title: 1, year: -1})
-  // .limit(10)
-  // .toArray();
+  //   const actionMovies = await movies
+  //     .find({ genres: "Action" })
+  //     .sort({ year: -1 })
+  //     .project({ title: 1, year: 1 })
+  //     .limit(10)
+  //     .toArray();
 
-  // console.log("Action Movies by Years", actionMovies)
+  //   console.log("Action Movies by Years", actionMovies);
 
-  
-
+  //3.Find movies with an IMDb rating greater than 8( title and IMDB information)
 };
 
-
 runDatabaseQueries();
-
