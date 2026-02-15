@@ -1,23 +1,23 @@
 const connect = require("./db");
 
-//Create
-const runCreate = async () => {
-  const db = await connect();
-  const users = db.collection("users");
+// //Create
+// const runCreate = async () => {
+//   const db = await connect();
+//   const users = db.collection("users");
 
-  // Add a new user
-  const newUser = {
-    name: "Ervin Chavez",
-    email: "ervin@example.com"
-  };
+//   // Add a new user
+//   const newUser = {
+//     name: "Ervin Chavez",
+//     email: "ervin@example.com"
+//   };
 
-  const result = await users.insertOne(newUser);
-  console.log("New user inserted with ID:", result.insertedId);
+//   const result = await users.insertOne(newUser);
+//   console.log("New user inserted with ID:", result.insertedId);
 
-  process.exit(0);
-};
+//   process.exit(0);
+// };
 
-runCreate();
+// runCreate();
 
 
 // const runDatabaseQueries = async () => {
