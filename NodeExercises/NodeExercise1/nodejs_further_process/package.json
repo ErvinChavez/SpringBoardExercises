@@ -1,0 +1,13 @@
+{
+  "name": "nodejs_further",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "Check out how [NodeJS] env variables work and what the [process] object displays",
+  "keywords": [],
+  "type": "commonjs"
+}
