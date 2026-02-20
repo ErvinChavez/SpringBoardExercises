@@ -9,5 +9,8 @@
   "license": "ISC",
   "description": "Check out how [NodeJS] env variables work and what the [process] object displays",
   "keywords": [],
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "axios": "^1.13.5"
+  }
 }
