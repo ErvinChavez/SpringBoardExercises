@@ -16,7 +16,7 @@ function handleOutput(text, out) {
   }
 }
 
-//read file at path and print it out
+//read IF file at path and print it out
 function cat(path, out) {
   fs.readFile(path, "utf8", function (err, data) {
     if (err) {
@@ -28,6 +28,7 @@ function cat(path, out) {
   });
 }
 
+//read IF file is from a URL and print it out
 async function webCat(url, out) {
   try {
     let resp = await axios.get(url);
@@ -41,6 +42,7 @@ async function webCat(url, out) {
 let path;
 let out;
 
+//this will set the path and out
 if (process.argv[2] === "--out") {
   out = process.argv[3];
   path = process.argv[4];
@@ -48,6 +50,7 @@ if (process.argv[2] === "--out") {
   path = process.argv[2];
 }
 
+//depending it's a url or not, this will say which function to use according if or not a url is present.
 if (path.slice(0, 4) === "http") {
   webCat(path, out);
 } else {
