@@ -50,7 +50,7 @@ class MarkovMachine {
     //empty starting Array
     let out = [];
     // keys will be an array of the keys in the object from this.chains
-    let keys = Array.from(this.chains.keys);
+    let keys = Array.from(this.chains.keys());
     //key is the random key, when we use the static choice function with keys being the array(ar)
     let key = MarkovMachine.choice(keys);
 
