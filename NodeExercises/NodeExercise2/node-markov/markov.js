@@ -39,6 +39,12 @@ class MarkovMachine {
     }
   }
 
+  /** create a function to return random element from an array */
+  static choice(ar) {
+    return ar[Math.floor(Math.random() * ar.length)];
+  }
+
+
 //   /** return random text from chains */
 
   makeText(numWords = 100) {
