@@ -2,7 +2,7 @@
 
 //Place in the imports required
 const fs = require("fs");
-const markov = require("./markov");
+const markov = require("./markov.js");
 const axios = require("axios");
 const process = require("process");
 
