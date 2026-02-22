@@ -12,10 +12,10 @@ class MarkovMachine {
     this.makeChains();
   }
 
-//   /** set markov chains:
-//    *
-//    *  for text of "the cat in the hat", chains will be
-//    *  {"the": ["cat", "hat"], "cat": ["in"], "in": ["the"], "hat": [null]} */
+  //   /** set markov chains:
+  //    *
+  //    *  for text of "the cat in the hat", chains will be
+  //    *  {"the": ["cat", "hat"], "cat": ["in"], "in": ["the"], "hat": [null]} */
 
   makeChains() {
     //makes a new empty Map object
@@ -44,72 +44,30 @@ class MarkovMachine {
     return ar[Math.floor(Math.random() * ar.length)];
   }
 
-
-//   /** return random text from chains */
+  //   /** return random text from chains */
 
   makeText(numWords = 100) {
-    // TODO
+    //empty starting Array
+    let out = [];
+    // keys will be an array of the keys in the object from this.chains
+    let keys = Array.from(this.chains.keys);
+    //key is the random key, when we use the static choice function with keys being the array(ar)
+    let key = MarkovMachine.choice(keys);
+
+    //generate words until hitting null or max words
+
+    //while the lenght of out is less than numWords(100) and key is not null
+    while (out.length < numWords && key !== null) {
+      //push the random key into out
+      out.push(key);
+      //nextWords is going get the values of that key
+      let nextWords = this.chains.get(key);
+      //key is going be another random choice from values in nextword.
+      key = MarkovMachine.choice(nextWords);
+    }
+    //return out Array with a space between them
+    return out.join(" ");
   }
 }
 
-
-
-/** Textual Markov chain generator */
-
-// class MarkovMachine {
-//   /** build markov machine; read in text. */
-//   constructor(text) {
-//     // Split text on spaces and line breaks
-//     let words = text.split(/[ \r\n]+/);
-//     // Filter out any empty strings
-//     this.words = words.filter(c => c !== "");
-//     // Build the chains
-//     this.makeChains();
-//   }
-
-//   /** set markov chains:
-//    *
-//    *  for text of "the cat in the hat", chains will be
-//    *  {"the": ["cat", "hat"], "cat": ["in"], "in": ["the"], "hat": [null]} */
-
-
-//   makeChains() {
-//     this.chains = new Map();
-
-//     for (let i = 0; i < this.words.length; i++) {
-//       let word = this.words[i];
-//       let nextWord = this.words[i + 1] || null;
-
-//       if (this.chains.has(word)) {
-//         this.chains.get(word).push(nextWord);
-//       } else {
-//         this.chains.set(word, [nextWord]);
-//       }
-//     }
-//   }
-
-//   /** return random element from an array */
-//   static choice(ar) {
-//     return ar[Math.floor(Math.random() * ar.length)];
-//   }
-
-//   /** return random text from chains */
-//   makeText(numWords = 100) {
-//     let out = [];
-
-//     // Pick a random starting word
-//     let keys = Array.from(this.chains.keys());
-//     let key = MarkovMachine.choice(keys);
-
-//     // Generate words until hitting null or max words
-//     while (out.length < numWords && key !== null) {
-//       out.push(key);
-//       let nextWords = this.chains.get(key);
-//       key = MarkovMachine.choice(nextWords);
-//     }
-
-//     return out.join(" ");
-//   }
-// }
-
-// module.exports = { MarkovMachine };
+module.exports = { MarkovMachine };
