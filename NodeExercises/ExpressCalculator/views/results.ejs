@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculation Result</title>
+</head>
+<body>
+  <h1>Operation: <%= response.operation %></h1>
+  <ul>
+    <% for (const key in response) { 
+         if (key !== "operation") { %>
+      <li><strong><%= key %>:</strong> <%= response[key] %></li>
+    <% } } %>
+  </ul>
+</body>
+</html>
