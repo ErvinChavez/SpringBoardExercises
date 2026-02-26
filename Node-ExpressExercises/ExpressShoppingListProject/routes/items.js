@@ -15,7 +15,7 @@ router.post('/',(req,res) => {
             items.push({ name, price});
             res.status(201).json({message: "Item added", item: { name, price} });
         } else {
-            res.status(404).send('Missing name or price');
+            res.status(400).send('Missing name or price');
         }
     })
 
