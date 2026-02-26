@@ -23,6 +23,7 @@ app.get("/users/:username", function (req, res, next) {
 });
 
 app.get("/secret", (req, res, next) => {
+  debugger;
   try {
     if (req.query.password != "popcorn") {
       throw new ExpressError("invalid password", 403);
@@ -34,12 +35,26 @@ app.get("/secret", (req, res, next) => {
 });
 
 app.get("/savetodb", (req, res) => {
-  attemptToSaveToDB();
-  res.send("SAVED TO DB!");
+  try {
+    attemptToSaveToDB();
+    return res.send("SAVED TO DB");
+  } catch (e) {
+    return next(new ExpressError("Database Error"));
+  }
 });
 
-app.use((error, req, res, next) => {
-  res.send("OH NO IT IS AN ERROR!!!");
+app.use((req, res, next) => {
+  const e = new ExpressError("invalid password");
+  next(e);
+});
+
+app.use((err, req, res, next) => {
+  let status = err.status || 500;
+  let message = err.message;
+
+  return res.status(status).json({
+    error: { message, status },
+  });
 });
 
 app.listen(3000, () => {
