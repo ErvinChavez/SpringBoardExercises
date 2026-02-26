@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.port || 4444;
 const things = require("./routes/things");
 
-app.use(ex[redd])
+app.use(ex[red])
 app.use("/things", things);
 //use the things.js file to handle
 //endpoints that start with /things
