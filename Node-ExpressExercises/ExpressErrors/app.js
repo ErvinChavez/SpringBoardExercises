@@ -3,8 +3,6 @@ const ExpressError = require("./expressError");
 
 const app = express();
 
-app.use(express.json);
-
 function attemptToSaveToDB() {
   throw "Connection Error!";
 }
@@ -15,21 +13,33 @@ const USERS = [
 ];
 
 app.get("/users/:username", function (req, res, next) {
-  const user = USERS.find((u) => u.username === req.params.username);
-  if (!user) throw ExpressError("invalid username", 404);
-  return res.send(user);
+  try {
+    const user = USERS.find((u) => u.username === req.params.username);
+    if (!user) throw ExpressError("invalid username", 404);
+    return res.send({ user });
+  } catch (e) {
+    next(e);
+  }
 });
 
-app.get("/secret", (req, res) => {
-  if (req.query.password != "popcorn") {
-    return res.status(403).send("INVALID PASSWORD!");
+app.get("/secret", (req, res, next) => {
+  try {
+    if (req.query.password != "popcorn") {
+      throw new ExpressError("invalid password", 403);
+    }
+    return res.send("CONGRATS YOU KNOW THE PASSWORD");
+  } catch (e) {
+    next(e);
   }
-  return res.send("CONGRATS YOU KNOW THE PASSWORD");
 });
 
 app.get("/savetodb", (req, res) => {
   attemptToSaveToDB();
-  return res.send("SAVED TO DB!");
+  res.send("SAVED TO DB!");
+});
+
+app.use((error, req, res, next) => {
+  res.send("OH NO IT IS AN ERROR!!!");
 });
 
 app.listen(3000, () => {
