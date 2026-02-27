@@ -1,1 +1,80 @@
-/* Your Styles Here */
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  padding: 2em;
+  margin: 0;
+}
+
+main {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2em;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Heading */
+h1 {
+  color: teal;
+  margin-bottom: 1.5em;
+}
+
+/* Form styling */
+#myForm {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+#search {
+  padding: 0.5em;
+  width: 60%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  padding: 0.5em 1em;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: lightseagreen;
+}
+
+/* GIF display area */
+#div-display {
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid lightseagreen;
+  border-radius: 10px;
+  padding: 1em;
+  background-color: #fafafa;
+}
+
+#gifPic {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+/* Error message styling (if you want to display errors) */
+.error-response {
+  color: white;
+  background-color: red;
+  padding: 1em;
+  border-radius: 5px;
+  font-weight: bold;
+}

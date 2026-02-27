@@ -1,16 +1,35 @@
-# React + Vite
+# Circle Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app built with **Vite** that lets users add colored circles and randomly reposition them on the screen.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What It Does
 
-## React Compiler
+- Users can click **color buttons** to add a new circle of that color.
+- Each circle is **positioned randomly** on the screen.
+- Clicking a circle will **randomly reposition it**.
+- Demonstrates React **state management** and **component composition**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## How It Works
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Built with **React 19** and **Vite**.
+- Uses functional components and `useState` to manage circles.
+- Components:
+  - `Circle` – displays an individual circle with color and position.
+  - `ColoredCircles` – manages the state of all circles and renders `Circle` components.
+  - `ColorButtons` – displays buttons to add circles of different colors.
+- Random positions are generated using a helper function `getRandom()` (percentage of viewport height/width).
+
+---
+
+## How to Run
+
+1. Make sure Node.js is installed on your machine.
+2. Clone or download the project.
+3. Install dependencies:
+
+```bash
+npm install

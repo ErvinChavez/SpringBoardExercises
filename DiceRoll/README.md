@@ -1,16 +1,25 @@
-# React + Vite
+# Dice Roll Project 🎲
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app built with **Vite** that simulates rolling dice. Users can roll multiple dice at once and see the results displayed dynamically.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Roll **multiple dice** simultaneously (default 6 dice, but configurable).  
+- Each die shows a **random number** between 1 and a maximum value (default 20, configurable).  
+- Users can customize the **number of dice**, **maximum value**, and **title** for each dice set.  
+- Dice are displayed in a clean, simple UI with individual components for each die.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Components
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **`Dice`** – Manages a group of dice and handles rolling logic. Uses `useState` to keep track of current dice values.  
+- **`Die`** – Displays a single die value.  
+- **`App`** – Main app component that renders multiple `Dice` components.
+
+### How Dice State Works
+
+```javascript
+const [numbers, setNumbers] = useState(Array.from({ length: numDice }));
