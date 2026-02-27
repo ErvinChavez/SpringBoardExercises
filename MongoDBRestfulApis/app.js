@@ -7,7 +7,7 @@ const Blog = require('./models/blogs');
 const app = express();
 
 //connect to mongodb
-const dbURI = 'mongodb+srv://ervinchavez:@test-cluster.itnyavc.mongodb.net/'
+const dbURI = 'mongodb+srv://ervinchavez:<password>@test-cluster.itnyavc.mongodb.net/'
 mongoose.connect(dbURI)
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err))
@@ -22,7 +22,7 @@ app.use(morgan('dev'));
 //mongoose and mongo sandbox routes
 app.get('/add-blog', (req, res) => {
   const blog = new Blog({
-    title: 'new blog',
+    title: 'new blog2',
     snippet: 'about my new blog',
     body: 'more about my new blog'
   })
@@ -36,6 +36,23 @@ app.get('/add-blog', (req, res) => {
     })
 })
 
+app.get('/all-blogs', (req, res) => {
+  Blog.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => console.log(err))
+})
+
+app.get('/single-blog', (req, res) => {
+  Blog.findById('69a10f2986647616132482bc')
+    .then((result) => {
+      res.send(result)
+    .catch((err) => {
+      console.log(err);
+    })
+    })
+})
 //routes
 app.get("/", (req, res) => {
   const blogs = [
