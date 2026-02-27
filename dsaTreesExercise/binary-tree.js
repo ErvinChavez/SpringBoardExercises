@@ -190,7 +190,7 @@ class BinaryTree {
 
     const stringArray = string.split(",");//create an array of the strings
     const rootVal = stringArray.shift();//the rootVal takes out the first string to be root so the rest can be children
-    const root = new Node(Number(rootVal));//the number of the root
+    const root = new BinaryTreeNode(Number(rootVal));//the number of the root
     const queue = [root];//list of values in queue 
 
     while (queue.length) {//while there are still numbers in queue
@@ -198,12 +198,12 @@ class BinaryTree {
 
      const leftVal = stringArray.shift();//assign the next left value in the string array to left
      if (leftVal !== "null" && leftVal !== undefined) {//if leftVal is not null or undefined
-      current.left = new Node(leftVal);//leftVal is a new node fot current.left
+      current.left = new BinaryTreeNode(Number(leftVal));//leftVal is a new node fot current.left
       queue.push(current.left);//push the left child to the queue list of array
      }
      const rightVal = stringArray.shift();//assign the first value in the right from stringArray array
      if (rightVal !== "null" && rightVal !== undefined) {//if the rightVal is a new node for current.right
-      current.right = new Node(rightVal);//let the current.right equal a new node of rightVal
+      current.right = new BinaryTreeNode(Number(rightVal));//let the current.right equal a new node of rightVal
       queue.push(current.right);//push the right child to the queue array
      }
     }
