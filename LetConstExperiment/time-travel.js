@@ -24,7 +24,7 @@ console.log(travelDate);//this prints out normally "2024-03-15"
 /* Task 4: Experiment with Variable Hoisting */
 // TODO: Before declaring any variable, try to print a variable named `timeMachineModel` to the console. Then, declare `timeMachineModel` using `var` and assign it the value `"T-800"`. Observe and explain what happens as a comment.
 
-console.log(timeMachineModel); //Gives me an error message of "timeMachineModel is not defined"
+console.log(timeMachineModel); //Gives me an error message of "timeMachineModel is undefined"
 var timeMachineModel = "T-800"; //Returns a value of undefined
 
 /*

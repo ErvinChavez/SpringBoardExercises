@@ -1,16 +1,36 @@
-# React + Vite
+# Hello World React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a minimal **React + Vite** setup that demonstrates basic React concepts, including **functional components**, **state management** with `useState`, and event handling.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Structure
 
-## React Compiler
+- **src/App.jsx**  
+  The main App component that renders the `SimpleCounter` component.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **src/simpleCounter.jsx**  
+  A simple counter component demonstrating React **state** and **event handling**.
+  
+- **src/index.css & src/App.css**  
+  Basic styling for layout and font defaults.
 
-## Expanding the ESLint configuration
+- **src/main.jsx**  
+  Entry point of the React application that mounts `<App />` to the DOM.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Features
+
+### SimpleCounter Component
+
+- Uses `useState` to track a numeric value.
+- Has two buttons:
+  1. **Up** — increases the count by 1.
+  2. **Up By 2** — intended to increase the count by 2 (though note: calling `setNum(num + 1)` twice in a row doesn’t reliably increment by 2 due to React state batching).
+- Displays the current count in an `<h3>` element.
+
+```jsx
+<h3>Count: {num}</h3>
+<button onClick={clickUp}>Up</button>
+<button onClick={clickUpBy2}>Up By 2</button>
