@@ -1,3 +1,6 @@
+//load enviroment variables from the .env file
+require("dotenv").config();
+
 //import the mongoose library, which allows us to interact with MongoDB
 const mongoose = require("mongoose");
 
@@ -20,5 +23,5 @@ async function connectDB() {
     process.exit(1);
   }
 }
-
+//export the function so other files can use it
 module.exports = connectDB;
