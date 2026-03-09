@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    //array of ObjectIDs referencing dogs this user has adopted
+    //array of ObjectIDs referencing dogs this user has registered
     registeredDogs: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -34,8 +34,8 @@ const userSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true },
-); //automatically adds createdAt and UpdatedAt fields
+  { timestamps: true }, //automatically adds createdAt and UpdatedAt fields
+);
 
 //middleware: before saving user, hash the password if it's a new or modified
 userSchema.pre("save", async function (next) {
