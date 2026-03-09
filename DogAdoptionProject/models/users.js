@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema(
 
 //middleware: before saving user, hash the password if it's a new or modified
 userSchema.pre("save", async function (next) {
-  //check if passwod field is modified
+  //check if password field is modified
   if (!this.isModified("password")) return next();
   try {
     //generate salt (random string for hashing)
