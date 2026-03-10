@@ -1,14 +1,48 @@
+# Dog Adoption Platform API
+
+A RESTful API for managing dog registrations and adoptions. Built with **Node.js**, **Express**, and **MongoDB**. Supports user authentication, dog registration, adoption, and listing of registered/adopted dogs.
+
+## Features
+
+- User registration and login with **JWT authentication**
+- Register new dogs for adoption
+- Adopt available dogs
+- View dogs you’ve registered or adopted
+- Secure routes with authentication middleware
+- Pagination support for listing dogs
+- Fully tested with **Mocha**, **Chai**, and **Supertest**
+
+## Tech Stack
+
+- **Node.js** & **Express** – Backend server  
+- **MongoDB Atlas** – Database  
+- **Mongoose** – ODM for MongoDB  
+- **JWT** – User authentication  
+- **bcrypt** – Password hashing  
+- **Mocha / Chai / Supertest** – Automated tests  
+- **dotenv** – Environment variable management  
+
+## Folder Structure
+
 The folder structure designed by our software architects ensures adherence to best practices:
 
-- `controllers`: Contains the logic for handling incoming requests and returning responses to the client.
-- `models`: Defines the data models and interacts directly with the database.
-- `routes`: Manages the routes of your API, directing requests to the appropriate controller.
-- `middlewares`: Houses custom middleware functions, including authentication and rate limiting.
-- `.env`: Stores environment variables, such as database connection strings and the JWT secret.
-- `app.js`: The main entry point of your application, where you configure the Express app and connect all the pieces.
-- `db.js`: Manages the database connection.
-- `package.json`: Keeps track of npm packages and scripts necessary for your project.
+- `controllers`: Handles incoming requests and returns responses.
+- `models`: Defines data models and interacts with the database.
+- `routes`: Manages API routes and directs requests to controllers.
+- `middlewares`: Houses custom middleware, including authentication.
+- `.env`: Stores environment variables (database URIs, JWT secrets).
+- `app.js`: Main entry point configuring the Express app.
+- `db.js`: Handles database connection.
+- `package.json`: Manages dependencies and npm scripts.
 
-This structure provides a solid foundation for building a well-organized, scalable backend service. By separating concerns into dedicated directories and files, your project remains clean, navigable, and easier to debug and extend.
+This structure keeps the project **clean, scalable, and easy to maintain**.
 
 View the rubric for this assessment [here](https://storage.googleapis.com/hatchways.appspot.com/employers/springboard/student_rubrics/Dog%20Adoption%20Platform%20Rubric.pdf)
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone <your-repo-url>
+cd DogAdoptionProject

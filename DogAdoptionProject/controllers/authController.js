@@ -23,13 +23,13 @@ async function registerUser(req, res) {
       return res.status(409).json({ message: "Username already taken." });
     }
 
-    // hash the password with bcrypt (10 rounds of salt)
-    const hashedPassword = await bcrypt.hash(password, 10);
+    // // hash the password with bcrypt (10 rounds of salt)
+    // const hashedPassword = await bcrypt.hash(password, 10);
 
     //create a new user document
     const newUser = new User({
       username,
-      password: hashedPassword,
+      password,
       registeredDogs: [],
       adoptedDogs: [],
     });

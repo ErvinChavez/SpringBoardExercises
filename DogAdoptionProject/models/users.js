@@ -38,17 +38,19 @@ const userSchema = new mongoose.Schema(
 );
 
 //middleware: before saving user, hash the password if it's a new or modified
-userSchema.pre("save", async function (next) {
-  //check if password field is modified
-  if (!this.isModified("password")) return next();
+userSchema.pre("save", async function () {
+  //'this refers to the current document
+  //check if password field is modified, if not, skip hashing
+  if (!this.isModified("password")) return;
+
   try {
     //generate salt (random string for hashing)
     const salt = await bcrypt.genSalt(10);
     //hash the password with salt
     this.password = await bcrypt.hash(this.password, salt);
-    next(); //continue saving
   } catch (err) {
-    next(err); //pass error to next middleware
+    //if error occurs during hashin, throw it so save fails
+    throw err;
   }
 });
 

@@ -40,7 +40,10 @@ async function registerDog(req, res) {
     });
 
     //send success response
-    res.status(201).json({ message: "Dog registered successfully" });
+    res.status(201).json({ 
+      message: "Dog registered successfully",
+      _id: newDog._id
+    });
   } catch (error) {
     console.error("Register dog error:", error);
 
@@ -49,7 +52,7 @@ async function registerDog(req, res) {
   }
 }
 
-//--------------------Controller to adapt a dog------------
+//--------------------Controller to adopt a dog------------
 async function adoptDog(req, res) {
   try {
     //get dog id from route parameter

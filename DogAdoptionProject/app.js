@@ -43,7 +43,7 @@ app.use('/dogs', dogRoutes);
 //default route for testing server
 //GET / will return a simple message to confirm the server is running
 app.get('/', (req, res) => {
-  res.send('Dog Adoption Platform API is runnig');
+  res.send('Dog Adoption Platform API is running');
 });
 
 //Start server after connecting to database
@@ -57,3 +57,6 @@ connectDB()
     console.error('Failed to connect to DB', err);
     process.exit(1); //Exit if DB connection fails
   });
+
+  //Export app to test it
+  module.exports = app;
