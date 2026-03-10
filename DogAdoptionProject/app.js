@@ -1,11 +1,23 @@
 //load enviroment variables
+//This lets you use process.env.MONGOD_URI, process.env.JWT_SECRET, etc.
+//Keeps sensitive info out of source code
 require("dotenv").config();
 
-//import required libraries
+//Import express libraries
+//Express is what we use to create the server and define routes
 const express = require("express");
+
+//Import CORS middleware
+//Allows you API to accept requests from other domains
 const cors = require("cors");
 
-//import database connection
+//Import your route modules
+//These contain the endpoint definitions for auth and dog operations
+const authRoutes = require('./routes/authRoutes');
+const dogRoutes = require('/routes/dogRoutes');
+
+//import database connection function
+//This connects your app to MongoDB Atlas
 const connectDB = require("./db");
 
 //create express app

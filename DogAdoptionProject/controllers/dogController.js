@@ -40,7 +40,7 @@ async function registerDog(req, res) {
     });
 
     //send success response
-    res.status(201).json({ message: "Server error while registering dog." });
+    res.status(201).json({ message: "Dog registered successfully" });
   } catch (error) {
     console.error("Register dog error:", error);
 
@@ -184,7 +184,7 @@ async function listAdoptedDogs(req, res) {
     const userId = req.user.userId;
 
     //pagination parameters
-    const page = parserInt(req.query.page) || 1;
+    const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 10;
 
     //calculate skip value
