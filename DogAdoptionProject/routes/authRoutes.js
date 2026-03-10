@@ -21,7 +21,7 @@ router.post('/register', registerUser);
 //define a POST route for user login
 //when a client sends POST request to /auth/login,
 //this route will run the loginUser controller
-router.post('./login', loginUser);
+router.post('/login', loginUser);
 
 //export the router so it can be used in app.js
 //app.js will mount this router under /auth

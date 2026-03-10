@@ -3,10 +3,10 @@ const bcrypt = require("bcrypt");
 //import jwt to generate tokens for login
 const jwt = require("jsonwebtoken");
 //import user model to interact with the database
-const User = require("../models/userModel");
+const User = require("../models/users");
 
 //register controller
-async function register(req, res) {
+async function registerUser(req, res) {
   try {
     const { username, password } = req.body;
 
@@ -46,7 +46,7 @@ async function register(req, res) {
 }
 
 //login controller
-async function login(req, res) {
+async function loginUser(req, res) {
   try {
     const { username, password } = req.body;
 
@@ -87,4 +87,4 @@ async function login(req, res) {
 }
 
 //export the controller functions to use in routes
-module.exports = { register, login };
+module.exports = { registerUser, loginUser };
