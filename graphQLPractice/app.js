@@ -1,123 +1,45 @@
 const express = require("express");
-const { graphqlHTTP } = require("express-graphql");
-const { buildSchema } = require("graphql");
+const bodyParser = require("body-parser");
+const graphqlHttp = require("express-graphql");
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt.js");
-require("dotenv").config();
 
-const Event = require("./models/event");
-const User = require("./models/user");
+const graphQlSchema = require("./graphql/schema/index");
+const graphQlResolvers = require("./graphql/resolvers/index");
+const isAuth = require("./middleware/is-auth");
 
 const app = express();
 
-app.use(express.json());
+app.use(bodyParser.json());
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
+app.use(isAuth);
 
 app.use(
   "/graphql",
-  graphqlHTTP({
-    schema: buildSchema(`
-      type Event {
-        _id: ID!
-        title: String!
-        description: String!
-        price: Float!
-        date: String!
-      }
-
-      type User {
-      _id: ID!
-      email: String!
-      password: String
-      }
-
-      input EventInput {
-        title: String!
-        description: String!
-        price: Float!
-        date: String!
-      }
-      
-      input UserInput {
-        email: String!
-        password: String!
-      }
-
-      type RootQuery {
-        events: [Event!]!
-      }
-
-      type RootMutation {
-        createEvent(eventInput: EventInput): Event
-        createUser(userInput: UserInput): User
-      }
-
-      schema {
-        query: RootQuery
-        mutation: RootMutation
-      }
-    `),
-    rootValue: {
-      events: () => {
-        return Event.find()
-          .then((events) => {
-            return events.map((event) => {
-              return { ...event._doc, _id: event.id };
-            });
-          })
-          .catch((err) => {
-            throw err;
-          });
-      },
-      createEvent: (args) => {
-        const event = new Event({
-          title: args.eventInput.title,
-          description: args.eventInput.description,
-          price: +args.eventInput.price,
-          date: new Date(args.eventInput.date),
-        });
-        return event
-          .save()
-          .then((result) => {
-            console.log(result);
-            return { ...result._doc, _id: event.id };
-          })
-          .catch((err) => {
-            console.log(err);
-            throw err;
-          });
-      },
-
-      createUser: (args) => {
-        User.findOne({ email: args.userInput.email })
-          .then((user) => {
-            if (user) {
-              throw new Error("User exists already.");
-            }
-            return bcrypt.hash(args.userInput.password, 12);
-          })
-          .then((hashedPassword) => {
-            const user = new User({
-              email: args.userInput.email,
-              password: hashedPassword,
-            });
-            return user.save();
-          })
-          .then((result) => {
-            return { ...result._doc, _id: result.id, password: null };
-          })
-          .catch((err) => {
-            throw err;
-          });
-      },
-    },
+  graphqlHttp({
+    schema: graphQlSchema,
+    rootValue: graphQlResolvers,
     graphiql: true,
   }),
 );
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(
+    `mongodb+srv://${process.env.MONGO_USER}:${
+      process.env.MONGO_PASSWORD
+    }@cluster0-ntrwp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`,
+  )
   .then(() => {
-    app.listen(3000);
+    app.listen(8000);
   })
   .catch((err) => {
     console.log(err);
