@@ -8,7 +8,7 @@ export default function HomePage() {
             <div className="journeyToTheFuture">
                 <h3>🗺 Journey into the Future</h3>
                 <div>
-                    <p>In a world where the impossible has become reality, where the stars are no longer out of reach, welcome to the future of humanity's survival and exploration. Withness the evoluton of technology as it transforms barren planetsin thriving havens, all made possible by the wonders of innovation and human detemination.</p>
+                    <p>In a world where the impossible has become reality, where the stars are no longer out of reach, welcome to the future of humanity's survival and exploration. Witness the evolution of technology as it transforms barren planets in thriving havens, all made possible by the wonders of innovation and human determination.</p>
                 </div>
             </div>
             <div className="fromNeglectToInnovation">
@@ -31,7 +31,7 @@ export default function HomePage() {
             </div>
             <div className="universeOfPossibilities">
                 <h3>🌌 A Universe of Possibilities Awaits</h3>
-                <p>Immerse yourself in the trill of exploration as you chart interplanetary courses within our solar system. Seamlessly navigate your fleet of spacecraft, hurtling through the cosmic void from one celestial body to another. The universe becomes your playground, and every planet a potential new home.</p>
+                <p>Immerse yourself in the thrill of exploration as you chart interplanetary courses within our solar system. Seamlessly navigate your fleet of spacecraft, hurtling through the cosmic void from one celestial body to another. The universe becomes your playground, and every planet a potential new home.</p>
             </div>
             <footer>
                 <p>The solar system: the new home.</p>

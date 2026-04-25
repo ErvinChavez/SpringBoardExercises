@@ -15,7 +15,7 @@ export default function Spacecraft() {
     const navigate = useNavigate(); /*On the return, this will navigate back one time when clicked */
 
     /**We are now going to repeat what we see in the Spacecrafts page: */
-    const [spacecraft, setSpaceCraft] = useState(null);
+    const [spacecraft, setSpacecraft] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -29,7 +29,7 @@ export default function Spacecraft() {
             if(response.isError || !response.data) {
                 setError("Failed to load spacecraft");
             } else {
-                setSpaceCraft(response.data);
+                setSpacecraft(response.data);
             }
 
             setIsLoading(false);
@@ -50,7 +50,7 @@ export default function Spacecraft() {
             <p><strong>Capacity:</strong> {spacecraft.capacity}</p>
             <p><strong>Description: {spacecraft.description}</strong></p>
 
-            {spacecraft.pictureURl && (
+            {spacecraft.pictureUrl && (
                 <img src= {spacecraft.pictureUrl} alt= {spacecraft.name}/>
             )}
         </div>

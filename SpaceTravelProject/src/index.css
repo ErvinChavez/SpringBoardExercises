@@ -46,10 +46,30 @@ main {
   max-width: 800px;
   margin: auto;
   text-align: center;
+  padding: 20px;
+}
+
+/* Each section block */
+.home > div {
+  border: 1px solid white;
+  padding: 16px;
+  margin: 20px 0;
+  border-radius: 8px;
+  text-align: left;
+}
+
+/* Headings spacing */
+.home h2 {
+  margin-bottom: 20px;
+}
+
+.home h3 {
+  margin-bottom: 10px;
 }
 
 .home p {
-  margin: auto;
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* card containers*/
@@ -59,6 +79,7 @@ main {
   flex-wrap: wrap;
   gap: 24px;
   justify-content: center;
+  padding: 20px;
 }
 
 /* cards */
@@ -66,23 +87,28 @@ main {
 .planet-card {
   border: 1px solid white;
   padding: 16px;
-  width: 260px;
+  width: 280px;
   text-align: center;
+  border-radius: 8px;
+  margin: 10px;
 }
 
 /* card actions */
 .spaceCraftActions {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 12px;
+  gap: 10px;
 }
 
 button {
   background-color: black;
   color: white;
   border: 1px solid white;
-  padding: 6px 12px;
+  padding: 8px 12px;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 button:hover {
@@ -93,5 +119,16 @@ button:hover {
 /* images */
 img {
   max-width: 100%;
-  border: 1px solid white;
+  height: auto;
+  display: block;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+/* Footer spacing */
+footer {
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid white;
+  text-align: center;
 }
